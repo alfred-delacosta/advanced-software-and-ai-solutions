@@ -63,7 +63,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className={`section ${styles.flushTop}`}>
         <div className="container">
           <p className="eyebrow">Services</p>
           <h2 className="h2">What we build with you</h2>
@@ -71,7 +71,7 @@ export default function HomePage() {
             Four focused offerings—from greenfield products to AI features and the
             integrations that keep operations moving.
           </p>
-          <div className="grid-2" style={{ marginTop: "1.5rem" }}>
+          <div className={`grid-2 ${styles.blockGap}`}>
             {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
@@ -79,7 +79,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+      <section className={`section ${styles.band}`}>
         <div className="container">
           <p className="eyebrow">How we work</p>
           <h2 className="h2">Discover → Build → Operate</h2>
@@ -91,7 +91,7 @@ export default function HomePage() {
               <article key={step.name} className="card">
                 <div className={styles.stepNum}>0{i + 1}</div>
                 <h3 className="h3">{step.name}</h3>
-                <p className="muted" style={{ margin: 0 }}>{step.detail}</p>
+                <p className={`muted ${styles.stepDetail}`}>{step.detail}</p>
               </article>
             ))}
           </div>
@@ -105,12 +105,12 @@ export default function HomePage() {
           <p className="lead">
             Placeholder case studies while we prepare detailed write-ups. Outcomes first—no fake logos.
           </p>
-          <div className="grid-3" style={{ marginTop: "1.5rem" }}>
+          <div className={`grid-3 ${styles.blockGap}`}>
             {teasers.map((item) => (
               <PortfolioCard key={item.id} item={item} />
             ))}
           </div>
-          <div style={{ marginTop: "1.5rem" }}>
+          <div className={styles.blockGap}>
             <Link href="/portfolio" className="btn btn-secondary">
               View portfolio
             </Link>
@@ -118,7 +118,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className={`section ${styles.flushTop}`}>
         <div className="container">
           <div className="cta-band">
             <h2 className="h2">Ready to talk through a project?</h2>

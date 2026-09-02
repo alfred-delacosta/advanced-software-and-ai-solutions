@@ -19,10 +19,19 @@
 .brand {
   font-weight: 700;
   letter-spacing: -0.02em;
-  white-space: nowrap;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
-.brand span {
+.brandShort {
+  display: inline;
+}
+
+.brandFull {
+  display: none;
+}
+
+.amp {
   color: var(--accent);
 }
 
@@ -36,16 +45,24 @@
   color: var(--text-muted);
   font-size: 0.95rem;
   font-weight: 500;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
 }
 
 .desktopNav a:hover {
   color: var(--text);
 }
 
+.desktopNav a.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
 .actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .menuBtn {
@@ -102,30 +119,66 @@
   gap: 0.5rem;
 }
 
-.mobilePanel a {
-  padding: 0.65rem 0;
+.mobilePanel a:not(.btn) {
+  padding: 0.65rem 0.75rem;
   color: var(--text-muted);
   font-weight: 500;
+  border-radius: var(--radius);
 }
 
-.mobilePanel a:hover {
+.mobilePanel a:not(.btn):hover {
   color: var(--text);
 }
 
+.mobilePanel a:not(.btn).active {
+  color: var(--text);
+  background: var(--accent-muted);
+}
+
+.mobileCta {
+  margin-top: 0.5rem;
+  width: fit-content;
+}
+
+.mobileEmail {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
 .ctaWrap {
-  display: none;
+  display: inline-flex;
+}
+
+.ctaBtn {
+  min-height: 2.35rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.875rem;
 }
 
 @media (min-width: 960px) {
+  .brandShort {
+    display: none;
+  }
+
+  .brandFull {
+    display: inline;
+    white-space: nowrap;
+  }
+
   .desktopNav {
     display: flex;
   }
+
   .menuBtn {
     display: none;
   }
-  .ctaWrap {
-    display: inline-flex;
+
+  .ctaBtn {
+    min-height: 2.75rem;
+    padding: 0.65rem 1.15rem;
+    font-size: inherit;
   }
+
   .mobilePanel {
     display: none !important;
   }

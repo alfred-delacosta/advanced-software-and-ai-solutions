@@ -1,30 +1,52 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { business } from "@/data/business";
 import styles from "./Navbar.module.css";
 
 const links = [
+  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
   { href: "/about", label: "About" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
 ];
 
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <Link href="/" className={styles.brand} onClick={() => setOpen(false)}>
-          Advanced Software <span>&amp;</span> AI Solutions
+        <Link
+          href="/"
+          className={styles.brand}
+          aria-label="Advanced Software & AI Solutions"
+          title="Advanced Software & AI Solutions"
+          onClick={() => setOpen(false)}
+        >
+          <span className={styles.brandShort}>ASAIS</span>
+          <span className={styles.brandFull}>
+            Advanced Software <span className={styles.amp}>&amp;</span> AI Solutions
+          </span>
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Primary">
           {links.map((link) => (
-            <Link key={link.href} href={link.href}>
+            <Link
+              key={link.href}
+              href={link.href}
+              className={isActive(pathname, link.href) ? styles.active : undefined}
+              aria-current={isActive(pathname, link.href) ? "page" : undefined}
+            >
               {link.label}
             </Link>
           ))}
@@ -32,7 +54,7 @@ export default function Navbar() {
 
         <div className={styles.actions}>
           <div className={styles.ctaWrap}>
-            <Link href="/contact" className="btn btn-primary">
+            <Link href="/contact" className={`btn btn-primary ${styles.ctaBtn}`}>
               Get in touch
             </Link>
           </div>
@@ -59,6 +81,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                className={isActive(pathname, link.href) ? styles.active : undefined}
+                aria-current={isActive(pathname, link.href) ? "page" : undefined}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
@@ -66,16 +90,13 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="btn btn-primary"
+              className={`btn btn-primary ${styles.mobileCta}`}
               onClick={() => setOpen(false)}
-              style={{ marginTop: "0.5rem", width: "fit-content" }}
             >
               Get in touch
             </Link>
           </nav>
-          <p className="muted" style={{ marginTop: "1rem", fontSize: "0.875rem" }}>
-            {business.email}
-          </p>
+          <p className={`muted ${styles.mobileEmail}`}>{business.email}</p>
         </div>
       </div>
     </header>

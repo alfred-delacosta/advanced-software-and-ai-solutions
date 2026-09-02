@@ -56,3 +56,21 @@
   letter-spacing: 0.06em;
   margin-bottom: 0.5rem;
 }
+
+.stepDetail {
+  margin: 0;
+}
+
+.flushTop {
+  padding-top: 0;
+}
+
+.blockGap {
+  margin-top: 1.5rem;
+}
+
+.band {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}

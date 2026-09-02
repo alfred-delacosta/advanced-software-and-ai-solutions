@@ -36,6 +36,7 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: business.name,
+  legalName: business.legalName,
   url: business.url,
   email: business.email,
   description: business.description,
@@ -60,6 +61,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
       <body>
+        <a href="#main-content" className="skipLink">
+          Skip to main content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -67,7 +71,9 @@ export default function RootLayout({
           }}
         />
         <Navbar />
-        <main className="main">{children}</main>
+        <main id="main-content" className="main" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

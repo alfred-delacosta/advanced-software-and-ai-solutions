@@ -34,6 +34,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
+  font-size: 1.0625rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -260,7 +261,6 @@ textarea {
 .cta-band .lead {
   margin-inline: auto;
 }
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -283,3 +283,40 @@ textarea {
     --nav-h: 64px;
   }
 }
+
+.skipLink {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  z-index: 100;
+  padding: 0.65rem 1rem;
+  background: var(--accent);
+  color: var(--primary-fg);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transform: translateY(-120%);
+  transition: transform 0.15s ease;
+}
+
+.skipLink:focus {
+  transform: translateY(0.75rem);
+}
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 1rem; }
+.mt-1-5 { margin-top: 1.5rem; }
+.mt-2-5 { margin-top: 2.5rem; }
+.mt-3 { margin-top: 3rem; }
+.mb-0 { margin-bottom: 0; }
+.mb-2 { margin-bottom: 2rem; }
+.text-center { text-align: center; }
+.justify-center { justify-content: center; }
+.lead-center { margin-inline: auto; }
+.section-flush-top { padding-top: 0; }
+.band-surface {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+

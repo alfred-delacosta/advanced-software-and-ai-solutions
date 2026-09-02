@@ -1,5 +1,6 @@
 export const business = {
   name: "Advanced Software and AI Solutions",
+  legalName: "Advanced Software and AI Solutions LLC",
   shortName: "ASAIS",
   email: "contact@advancedsoftwareandaisolutions.com",
   url: "https://advancedsoftwareandaisolutions.com",
