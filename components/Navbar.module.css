@@ -1,0 +1,132 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--nav-h);
+  backdrop-filter: blur(10px);
+  background: rgba(10, 12, 16, 0.85);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.brand span {
+  color: var(--accent);
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.desktopNav a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.desktopNav a:hover {
+  color: var(--text);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.menuBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.menuBtn span,
+.menuBtn span::before,
+.menuBtn span::after {
+  display: block;
+  width: 1rem;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  transition: transform 0.15s ease;
+}
+
+.menuBtn span::before,
+.menuBtn span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menuBtn span::before {
+  top: -5px;
+}
+
+.menuBtn span::after {
+  top: 5px;
+}
+
+.mobilePanel {
+  display: none;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+  padding: 1rem 0 1.25rem;
+}
+
+.mobilePanel.open {
+  display: block;
+}
+
+.mobilePanel nav {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.mobilePanel a {
+  padding: 0.65rem 0;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.mobilePanel a:hover {
+  color: var(--text);
+}
+
+.ctaWrap {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .desktopNav {
+    display: flex;
+  }
+  .menuBtn {
+    display: none;
+  }
+  .ctaWrap {
+    display: inline-flex;
+  }
+  .mobilePanel {
+    display: none !important;
+  }
+}
