@@ -6,7 +6,11 @@ export default function PortfolioCard({ item }: { item: PortfolioItem }) {
 
   return (
     <article className={`${styles.card} ${isLive ? styles.live : ""}`}>
-      <div className={styles.thumb} data-product={item.id} aria-hidden="true" />
+      <div className={styles.thumb} data-product={item.id}>
+        {item.thumbSrc ? (
+          <img src={item.thumbSrc} alt={item.thumbAlt ?? item.title} width={1200} height={630} />
+        ) : null}
+      </div>
       <div className={styles.body}>
         <span className={styles.tag}>{item.industry}</span>
         <h3 className="h3">{item.title}</h3>

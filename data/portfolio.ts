@@ -5,6 +5,8 @@ export type PortfolioItem = {
   outcome: string;
   status: "live" | "coming-soon";
   href?: string;
+  thumbSrc?: string;
+  thumbAlt?: string;
 };
 
 export const portfolioItems: PortfolioItem[] = [
@@ -15,6 +17,8 @@ export const portfolioItems: PortfolioItem[] = [
     outcome:
       "Browser-sealed file share for businesses that handle personal information — expiring password-gated links, wipe from the dashboard, no email attachments left sitting forever.",
     status: "live",
+    thumbSrc: "/portfolio/sealsend-portfolio.svg",
+    thumbAlt: "SealSend secure file share",
   },
   {
     id: "emailarchiver",
@@ -24,6 +28,8 @@ export const portfolioItems: PortfolioItem[] = [
       "Upload .eml or .mbox files and export visual PDFs that match how the email looks — built for archiving and handoff without connecting a live inbox.",
     status: "live",
     href: "https://github.com/alfred-delacosta/emailarchiver",
+    thumbSrc: "/portfolio/emailarchiver-portfolio.svg",
+    thumbAlt: "EmailArchiver email to PDF",
   },
   {
     id: "ops-console",

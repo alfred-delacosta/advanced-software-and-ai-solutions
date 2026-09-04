@@ -14,6 +14,14 @@
     radial-gradient(circle at 30% 30%, rgba(45, 212, 191, 0.18), transparent 55%),
     linear-gradient(145deg, var(--surface-2), var(--surface));
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .body {
@@ -44,24 +52,6 @@
   border-top: 1px solid var(--border);
   padding-top: 0.75rem;
   margin-top: 0.25rem;
-}
-
-.live .thumb {
-  background:
-    radial-gradient(circle at 28% 28%, rgba(29, 78, 137, 0.22), transparent 55%),
-    linear-gradient(145deg, var(--surface-2), var(--surface));
-}
-
-.thumb[data-product="sealsend"] {
-  background:
-    radial-gradient(circle at 30% 30%, rgba(29, 78, 137, 0.28), transparent 50%),
-    linear-gradient(145deg, #efece6, #f7f6f3);
-}
-
-.thumb[data-product="emailarchiver"] {
-  background:
-    radial-gradient(circle at 70% 35%, rgba(37, 99, 235, 0.22), transparent 55%),
-    linear-gradient(145deg, var(--surface-2), var(--surface));
 }
 
 .status a {
