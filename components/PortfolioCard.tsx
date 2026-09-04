@@ -11,11 +11,15 @@ export default function PortfolioCard({ item }: { item: PortfolioItem }) {
         <span className={styles.tag}>{item.industry}</span>
         <h3 className="h3">{item.title}</h3>
         <p className={styles.outcome}>{item.outcome}</p>
-        {isLive && item.href ? (
+        {isLive ? (
           <p className={styles.status}>
-            <a href={item.href} target="_blank" rel="noopener noreferrer">
-              View on GitHub
-            </a>
+            {item.href ? (
+              <a href={item.href} target="_blank" rel="noopener noreferrer">
+                View on GitHub
+              </a>
+            ) : (
+              "Live product"
+            )}
           </p>
         ) : (
           <p className={styles.status}>Case study soon</p>

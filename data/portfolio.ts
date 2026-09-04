@@ -15,7 +15,6 @@ export const portfolioItems: PortfolioItem[] = [
     outcome:
       "Browser-sealed file share for businesses that handle personal information — expiring password-gated links, wipe from the dashboard, no email attachments left sitting forever.",
     status: "live",
-    href: "https://github.com/alfred-delacosta/sealsend",
   },
   {
     id: "emailarchiver",
