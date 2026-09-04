@@ -1,8 +1,10 @@
 import Link from "next/link";
 import ServiceCard from "@/components/ServiceCard";
+import ProductCard from "@/components/ProductCard";
 import PortfolioCard from "@/components/PortfolioCard";
 import { business } from "@/data/business";
 import { services } from "@/data/services";
+import { products } from "@/data/products";
 import { portfolioItems } from "@/data/portfolio";
 import { buildMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
@@ -32,7 +34,7 @@ const steps = [
 ];
 
 export default function HomePage() {
-  const teasers = portfolioItems.filter((i) => i.status === "live").concat(portfolioItems.filter((i) => i.status === "coming-soon")).slice(0, 3);
+  const caseTeasers = portfolioItems.slice(0, 3);
 
   return (
     <>
@@ -50,8 +52,8 @@ export default function HomePage() {
             <Link href="/contact" className="btn btn-primary">
               Get in touch
             </Link>
-            <Link href="/services" className="btn btn-secondary">
-              Explore services
+            <Link href="/products" className="btn btn-secondary">
+              View products
             </Link>
           </div>
           <div className={styles.trust}>
@@ -59,6 +61,26 @@ export default function HomePage() {
             <span>Production-minded AI</span>
             <span>Observable automations</span>
             <span>Email-first collaboration</span>
+          </div>
+        </div>
+      </section>
+
+      <section className={`section ${styles.flushTop}`}>
+        <div className="container">
+          <p className="eyebrow">Products</p>
+          <h2 className="h2">Software we sell and ship</h2>
+          <p className="lead">
+            SealSend and EmailArchiver are products from our team. Custom builds live under Services.
+          </p>
+          <div className={`grid-2 ${styles.blockGap}`}>
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+          <div className={styles.blockGap}>
+            <Link href="/products" className="btn btn-secondary">
+              All products
+            </Link>
           </div>
         </div>
       </section>
@@ -101,12 +123,12 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <p className="eyebrow">Portfolio</p>
-          <h2 className="h2">Products and selected work</h2>
+          <h2 className="h2">Case studies coming soon</h2>
           <p className="lead">
-            SealSend and EmailArchiver ship from our team. More case studies are on the way—outcomes first, no fake logos.
+            Client work and engagement outcomes—placeholders for now, no fake logos.
           </p>
           <div className={`grid-3 ${styles.blockGap}`}>
-            {teasers.map((item) => (
+            {caseTeasers.map((item) => (
               <PortfolioCard key={item.id} item={item} />
             ))}
           </div>

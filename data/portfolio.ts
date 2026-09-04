@@ -3,34 +3,10 @@ export type PortfolioItem = {
   title: string;
   industry: string;
   outcome: string;
-  status: "live" | "coming-soon";
-  href?: string;
-  thumbSrc?: string;
-  thumbAlt?: string;
+  status: "coming-soon";
 };
 
 export const portfolioItems: PortfolioItem[] = [
-  {
-    id: "sealsend",
-    title: "SealSend",
-    industry: "Secure file sharing",
-    outcome:
-      "Browser-sealed file share for businesses that handle personal information — expiring password-gated links, wipe from the dashboard, no email attachments left sitting forever.",
-    status: "live",
-    thumbSrc: "/portfolio/sealsend-portfolio.svg",
-    thumbAlt: "SealSend secure file share",
-  },
-  {
-    id: "emailarchiver",
-    title: "EmailArchiver",
-    industry: "Email to PDF",
-    outcome:
-      "Upload .eml or .mbox files and export visual PDFs that match how the email looks — built for archiving and handoff without connecting a live inbox.",
-    status: "live",
-    href: "https://github.com/alfred-delacosta/emailarchiver",
-    thumbSrc: "/portfolio/emailarchiver-portfolio.svg",
-    thumbAlt: "EmailArchiver email to PDF",
-  },
   {
     id: "ops-console",
     title: "Operations Console Rebuild",
