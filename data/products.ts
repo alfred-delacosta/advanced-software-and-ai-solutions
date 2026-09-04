@@ -17,7 +17,7 @@ export const products: Product[] = [
     summary:
       "Browser-sealed file share for businesses that handle personal information — expiring password-gated links, wipe from the dashboard, no email attachments left sitting forever.",
     statusLabel: "Live product",
-    thumbSrc: "/portfolio/sealsend-portfolio.svg",
+    thumbSrc: "/products/sealsend-portfolio.svg",
     thumbAlt: "SealSend secure file share",
   },
   {
@@ -27,8 +27,7 @@ export const products: Product[] = [
     summary:
       "Upload .eml or .mbox files and export visual PDFs that match how the email looks — built for archiving and handoff without connecting a live inbox.",
     statusLabel: "Live product",
-    href: "https://github.com/alfred-delacosta/emailarchiver",
-    thumbSrc: "/portfolio/emailarchiver-portfolio.svg",
+    thumbSrc: "/products/emailarchiver-portfolio.svg",
     thumbAlt: "EmailArchiver email to PDF",
   },
 ];
