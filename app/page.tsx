@@ -32,7 +32,7 @@ const steps = [
 ];
 
 export default function HomePage() {
-  const teasers = portfolioItems.slice(0, 3);
+  const teasers = portfolioItems.filter((i) => i.status === "live").concat(portfolioItems.filter((i) => i.status === "coming-soon")).slice(0, 3);
 
   return (
     <>
@@ -101,9 +101,9 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <p className="eyebrow">Portfolio</p>
-          <h2 className="h2">Selected work in progress</h2>
+          <h2 className="h2">Products and selected work</h2>
           <p className="lead">
-            Placeholder case studies while we prepare detailed write-ups. Outcomes first—no fake logos.
+            SealSend and EmailArchiver ship from our team. More case studies are on the way—outcomes first, no fake logos.
           </p>
           <div className={`grid-3 ${styles.blockGap}`}>
             {teasers.map((item) => (

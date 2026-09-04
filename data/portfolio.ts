@@ -3,10 +3,29 @@ export type PortfolioItem = {
   title: string;
   industry: string;
   outcome: string;
-  status: "coming-soon";
+  status: "live" | "coming-soon";
+  href?: string;
 };
 
 export const portfolioItems: PortfolioItem[] = [
+  {
+    id: "sealsend",
+    title: "SealSend",
+    industry: "Secure file sharing",
+    outcome:
+      "Browser-sealed file share for businesses that handle personal information — expiring password-gated links, wipe from the dashboard, no email attachments left sitting forever.",
+    status: "live",
+    href: "https://github.com/alfred-delacosta/sealsend",
+  },
+  {
+    id: "emailarchiver",
+    title: "EmailArchiver",
+    industry: "Email to PDF",
+    outcome:
+      "Upload .eml or .mbox files and export visual PDFs that match how the email looks — built for archiving and handoff without connecting a live inbox.",
+    status: "live",
+    href: "https://github.com/alfred-delacosta/emailarchiver",
+  },
   {
     id: "ops-console",
     title: "Operations Console Rebuild",
@@ -33,20 +52,6 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Partner Self-Service Portal",
     industry: "Distribution",
     outcome: "Gave partners order visibility and reduced inbound status requests.",
-    status: "coming-soon",
-  },
-  {
-    id: "intake-automation",
-    title: "Customer Intake Automation",
-    industry: "Healthcare-adjacent",
-    outcome: "Automated multi-step onboarding checklists across form, CRM, and email.",
-    status: "coming-soon",
-  },
-  {
-    id: "forecast-workspace",
-    title: "Planning Forecast Workspace",
-    industry: "Retail",
-    outcome: "Centralized demand signals for planners with auditable assumptions.",
     status: "coming-soon",
   },
 ];
