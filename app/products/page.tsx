@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Products",
   description:
-    "Software products from Advanced Software and AI Solutions, including SealSend secure file share and EmailArchiver email to PDF.",
+    "Software products from Advanced Software and AI Solutions, including BriefSeal secure file share and EmailArchiver email to PDF.",
   path: "/products",
 });
 
@@ -36,7 +36,7 @@ export default function ProductsPage() {
           <p className="lead">
             We also design and build custom software for US companies. Tell us what you need.
           </p>
-          <div className="btn-row">
+          <div className="btn-row justify-center">
             <Link href="/contact" className="btn btn-primary">
               Get in touch
             </Link>

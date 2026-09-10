@@ -11,14 +11,14 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    id: "sealsend",
-    title: "SealSend",
+    id: "briefSeal",
+    title: "BriefSeal",
     category: "Secure file sharing",
     summary:
       "Browser-sealed file share for businesses that handle personal information — expiring password-gated links, wipe from the dashboard, no email attachments left sitting forever.",
     statusLabel: "Live product",
-    thumbSrc: "/products/sealsend-portfolio.svg",
-    thumbAlt: "SealSend secure file share",
+    thumbSrc: "/products/briefseal-portfolio.svg",
+    thumbAlt: "BriefSeal secure file share",
   },
   {
     id: "emailarchiver",
