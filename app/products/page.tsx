@@ -36,7 +36,7 @@ export default function ProductsPage() {
           <p className="lead">
             We also design and build custom software for US companies. Tell us what you need.
           </p>
-          <div className="btn-row">
+          <div className="btn-row justify-center">
             <Link href="/contact" className="btn btn-primary">
               Get in touch
             </Link>
