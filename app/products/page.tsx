@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Products",
   description:
-    "Software products from Advanced Software and AI Solutions, including SealSend secure file share and EmailArchiver email to PDF.",
+    "Software products from Advanced Software and AI Solutions, including BriefSeal secure file share and EmailArchiver email to PDF.",
   path: "/products",
 });
 

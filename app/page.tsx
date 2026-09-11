@@ -70,7 +70,7 @@ export default function HomePage() {
           <p className="eyebrow">Products</p>
           <h2 className="h2">Software we sell and ship</h2>
           <p className="lead">
-            SealSend and EmailArchiver are products from our team. Custom builds live under Services.
+            BriefSeal and EmailArchiver are products from our team. Custom builds live under Services.
           </p>
           <div className={`grid-2 ${styles.blockGap}`}>
             {products.map((product) => (
