@@ -21,6 +21,7 @@
 
   --accent: #0b6dff;
   --accent-hover: #0958d4;
+  --accent-fill-hover: #0958d4; /* primary CTA hover fill; do not lighten in dark */
   --accent-muted: rgba(11, 109, 255, 0.12);
   --accent-soft: #2563eb;
   --accent-text: #0958d4;
@@ -58,7 +59,9 @@
     --nav-bg: rgba(7, 11, 18, 0.88);
     --primary-fg: #ffffff;
     --accent-text: #6ba3ff;
-    --accent-text-hover: #9ec1ff; /* link hover ≥4.5:1 on void/surface */
+    --accent-text-hover: #9ec1ff;
+    --accent-hover: #9ec1ff; /* text/link hover ≥4.5:1 on void/surface */
+    --accent-fill-hover: #0958d4;
     --border-control: #6b778a;
     --danger: #f87171;
   }
@@ -75,6 +78,8 @@
   --primary-fg: #ffffff;
   --accent-text: #6ba3ff;
   --accent-text-hover: #9ec1ff;
+  --accent-hover: #9ec1ff;
+  --accent-fill-hover: #0958d4;
   --border-control: #6b778a;
   --danger: #f87171;
 }
@@ -90,6 +95,8 @@
   --primary-fg: #ffffff;
   --accent-text: #0958d4;
   --accent-text-hover: #0958d4;
+  --accent-hover: #0958d4;
+  --accent-fill-hover: #0958d4;
   --border-control: #6b7585;
   --danger: #b91c1c;
 }
@@ -235,7 +242,7 @@ textarea {
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
+  background: var(--accent-fill-hover);
 }
 
 .btn-secondary {
@@ -262,7 +269,7 @@ textarea {
 }
 
 .text-link:hover {
-  color: var(--accent-text-hover);
+  color: var(--accent-hover);
 }
 
 .card {
@@ -323,7 +330,7 @@ textarea {
 .prose a:hover,
 .muted a:hover,
 .lead a:hover {
-  color: var(--accent-text-hover);
+  color: var(--accent-hover);
 }
 
 .breadcrumbs {
@@ -342,7 +349,7 @@ textarea {
 }
 
 .breadcrumbs a:hover {
-  color: var(--accent-text-hover);
+  color: var(--accent-hover);
 }
 
 .list-check {

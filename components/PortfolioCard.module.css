@@ -62,7 +62,7 @@
 }
 
 .status a:hover {
-  color: var(--accent-text-hover);
+  color: var(--accent-hover);
 }
 
 .listRow {
