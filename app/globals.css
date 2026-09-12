@@ -371,6 +371,12 @@ textarea {
   }
 }
 
+@media (min-width: 960px) {
+  :root {
+    --nav-h: 80px;
+  }
+}
+
 .skipLink {
   position: absolute;
   left: 1rem;

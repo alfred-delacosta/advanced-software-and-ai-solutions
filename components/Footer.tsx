@@ -11,7 +11,25 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <div>
-          <strong className={styles.brand}>{company.shortName}</strong>
+          <Link href="/" className={styles.brandLockup} aria-label={company.name}>
+            <img
+              src="/brand/mark.svg"
+              alt=""
+              className={`${styles.brandMark} ${styles.brandMarkLight}`}
+              width={32}
+              height={32}
+              decoding="async"
+            />
+            <img
+              src="/brand/mark-on-dark.svg"
+              alt=""
+              className={`${styles.brandMark} ${styles.brandMarkDark}`}
+              width={32}
+              height={32}
+              decoding="async"
+            />
+            <strong className={styles.brand}>{company.name}</strong>
+          </Link>
           <p className={styles.blurb}>{company.description}</p>
           <p className={styles.trust}>{company.trustLine}</p>
         </div>
