@@ -64,10 +64,12 @@ export default function Navbar() {
         </nav>
 
         <div className={styles.actions}>
-          <ThemeToggle />
+          <div className={styles.themeDesktop}>
+            <ThemeToggle />
+          </div>
           <div className={styles.ctaWrap}>
             <Link href="/contact" className={`btn btn-primary ${styles.ctaBtn}`}>
-              Contact
+              Start a project
             </Link>
           </div>
           <button
@@ -100,6 +102,9 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <div className={styles.mobileTheme}>
+              <ThemeToggle />
+            </div>
             <Link
               href="/contact"
               className={`btn btn-primary ${styles.mobileCta}`}

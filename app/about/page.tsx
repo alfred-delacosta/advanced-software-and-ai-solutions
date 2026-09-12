@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { business } from "@/data/business";
+import { company } from "@/data/company";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -47,6 +48,7 @@ export default function AboutPage() {
           {business.name} helps growing US companies design, build, and operate
           custom software, AI systems, and automations that fit how they work.
         </p>
+        <p className="muted">{company.trustLine}</p>
 
         <div className="prose">
           <p>

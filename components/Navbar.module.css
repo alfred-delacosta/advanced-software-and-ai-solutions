@@ -172,6 +172,14 @@
   font-size: 0.875rem;
 }
 
+.themeDesktop {
+  display: none;
+}
+
+.mobileTheme {
+  padding: 0.35rem 0;
+}
+
 .ctaWrap {
   display: none;
 }
@@ -193,6 +201,10 @@
 
   .menuBtn {
     display: none;
+  }
+
+  .themeDesktop {
+    display: inline-flex;
   }
 
   .ctaWrap {

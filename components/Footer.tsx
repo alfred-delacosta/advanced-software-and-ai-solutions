@@ -18,6 +18,7 @@ export default function Footer() {
         <div>
           <p className={styles.heading}>Company</p>
           <div className={styles.links}>
+            <Link href="/about">About</Link>
             <Link href="/products">Products</Link>
             <Link href="/portfolio">Portfolio</Link>
             <Link href="/contact">Contact</Link>
