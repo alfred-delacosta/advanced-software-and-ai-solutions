@@ -44,7 +44,7 @@ export default function TermsPage() {
           <p>
             <strong>Not legal advice.</strong> Paid product subscriptions and
             client engagements are governed by separate product terms or a signed
-            statement of work / services agreement—not by these Site Terms alone.
+            statement of work / services agreement, not by these Site Terms alone.
           </p>
 
           <h2 className="h2">1. Who we are</h2>
@@ -127,7 +127,7 @@ export default function TermsPage() {
 
           <h2 className="h2">5. Intellectual property</h2>
           <p>
-            The Site—including text, branding, logos, layout, and graphics—is
+            The Site, including text, branding, logos, layout, and graphics, is
             owned by ASAIS or its licensors and protected by intellectual
             property laws.
           </p>

@@ -7,7 +7,7 @@ export default function ProductCard({ product }: { product: Product }) {
   const waitlistHref = productWaitlistHref(product);
 
   return (
-    <article className={`${styles.card} ${styles.live}`}>
+    <article className={`${styles.card} ${styles.product}`}>
       <div className={styles.thumb} data-product={product.id}>
         <img
           src={product.thumbSrc}
@@ -28,14 +28,18 @@ export default function ProductCard({ product }: { product: Product }) {
               View product
             </a>
           ) : (
-            <a href={waitlistHref}>{product.ctaLabel}</a>
+            <a
+              href={waitlistHref}
+              aria-describedby={`${product.id}-waitlist-note`}
+            >
+              {product.ctaLabel}
+            </a>
           )}
         </p>
-        <p className={`muted ${styles.waitlistNote}`}>{product.microcopy}</p>
-        <p className={`muted ${styles.waitlistNote}`}>
-          By sharing your email, you ask to join the {product.title} interest
-          list. We’ll use it only to email you about launch and early access for
-          that product. See our{" "}
+        <p id={`${product.id}-waitlist-note`} className={`muted ${styles.waitlistNote}`}>
+          {product.microcopy} Opens your email app with a draft to ASAIS. We’ll
+          email you when early access for {product.title} opens. We won’t add you
+          to unrelated marketing lists. See our{" "}
           <Link href="/privacy/">Privacy Policy</Link>. Unsubscribe anytime via{" "}
           <a href="mailto:contact@advancedsoftwareandaisolutions.com">
             contact@advancedsoftwareandaisolutions.com

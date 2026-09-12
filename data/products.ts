@@ -32,9 +32,9 @@ export const products: Product[] = [
     title: "BriefSeal",
     category: "Secure file sharing",
     summary:
-      "Browser-sealed file share for businesses that handle personal information: expiring password-gated links, wipe from the dashboard, no email attachments left sitting forever.",
+      "A safe way to send documents to clients, and get documents back.",
     statusLabel: "Coming soon",
-    ctaLabel: "Join the waitlist",
+    ctaLabel: "Join the BriefSeal waitlist",
     microcopy: "Be first to know when BriefSeal opens. No spam.",
     waitlistSubject: "BriefSeal waitlist",
     thumbSrc: "/products/briefseal-portfolio.svg",
@@ -47,7 +47,7 @@ export const products: Product[] = [
     summary:
       "Upload .eml or .mbox files and export visual PDFs that match how the email looks, built for archiving and handoff without connecting a live inbox.",
     statusLabel: "Coming soon",
-    ctaLabel: "Join the waitlist",
+    ctaLabel: "Join the EmailArchiver waitlist",
     microcopy: "Get notified when EmailArchiver is ready. Email only.",
     waitlistSubject: "EmailArchiver waitlist",
     thumbSrc: "/products/emailarchiver-portfolio.svg",

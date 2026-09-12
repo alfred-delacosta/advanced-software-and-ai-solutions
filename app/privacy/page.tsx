@@ -319,7 +319,7 @@ export default function PrivacyPage() {
             <li>
               <strong>Product waitlist / interest emails:</strong> kept until you
               unsubscribe or request deletion, or until we discontinue that
-              waitlist and delete or anonymize the list—whichever comes first. We
+              waitlist and delete or anonymize the list, whichever comes first. We
               aim to honor unsubscribe/deletion requests promptly (target: within{" "}
               <strong>30 days</strong>).
             </li>

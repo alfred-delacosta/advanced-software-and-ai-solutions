@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useId, useRef, useState } from "react";
 import { contact } from "@/data/contact";
 import { services } from "@/data/services";
@@ -134,7 +135,7 @@ export default function ContactForm() {
       }
     }
 
-    // Static default: pre-filled mailto (Hostinger Website–safe, no Node).
+    // Static default: pre-filled mailto (Hostinger Website-safe, no Node).
     const mailto = buildMailto({
       name: payload.name.trim(),
       email: payload.email.trim(),
@@ -292,20 +293,21 @@ export default function ContactForm() {
               ) : null}
             </div>
             <p className={`muted ${styles.privacyNote}`}>
-              We use inquiries only to reply about your message—not for unrelated
-              marketing. See our{" "}
-              <a href="/privacy/">Privacy Policy</a>. Prefer email?{" "}
+              We use inquiries only to reply about your message, not for
+              unrelated marketing. See our{" "}
+              <Link href="/privacy/">Privacy Policy</Link>. Prefer email?{" "}
               <a href={`mailto:${contact.email}`}>{contact.email}</a>
               {formspreeEndpoint ? (
                 <>
                   {" "}
-                  Submissions are processed by Formspree to deliver your message
-                  to us.
+                  If Formspree is enabled, Formspree processes the submission to
+                  deliver it to ASAIS.
                 </>
               ) : (
                 <>
                   {" "}
-                  Submit opens a pre-filled email to us (mailto).
+                  Submit opens your email app with a draft to us (mailto). No
+                  server post.
                 </>
               )}
             </p>
@@ -314,7 +316,11 @@ export default function ContactForm() {
               className="btn btn-primary"
               disabled={status === "submitting"}
             >
-              {status === "submitting" ? "Sending…" : "Send message"}
+              {status === "submitting"
+                ? "Sending…"
+                : formspreeEndpoint
+                  ? "Send message"
+                  : "Open email draft"}
             </button>
           </form>
         )}
