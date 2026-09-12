@@ -23,9 +23,11 @@
   --accent-hover: #0958d4;
   --accent-muted: rgba(11, 109, 255, 0.12);
   --accent-soft: #2563eb;
+  --accent-text: #0958d4;
   --focus: #0b6dff;
-  --danger: #dc2626;
+  --danger: #b91c1c;
   --primary-fg: #ffffff;
+  --border-control: #6b7585;
 
   --bg: var(--paper);
   --text: var(--ink);
@@ -54,6 +56,8 @@
     --panel-2: #121a28;
     --nav-bg: rgba(7, 11, 18, 0.88);
     --primary-fg: #ffffff;
+    --accent-text: #6ba3ff;
+    --border-control: #6b778a;
     --danger: #f87171;
   }
 }
@@ -67,6 +71,8 @@
   --panel-2: #121a28;
   --nav-bg: rgba(7, 11, 18, 0.88);
   --primary-fg: #ffffff;
+  --accent-text: #6ba3ff;
+  --border-control: #6b778a;
   --danger: #f87171;
 }
 
@@ -79,7 +85,9 @@
   --panel-2: #eef1f4;
   --nav-bg: rgba(244, 246, 248, 0.88);
   --primary-fg: #ffffff;
-  --danger: #dc2626;
+  --accent-text: #0958d4;
+  --border-control: #6b7585;
+  --danger: #b91c1c;
 }
 
 *,
@@ -152,7 +160,7 @@ textarea {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin: 0 0 0.85rem;
 }
 
@@ -228,7 +236,7 @@ textarea {
 
 .btn-secondary {
   background: transparent;
-  border-color: var(--border);
+  border-color: var(--border-control);
   color: var(--text);
 }
 
@@ -238,18 +246,19 @@ textarea {
 }
 
 .text-link {
-  color: var(--text);
+  color: var(--accent-text);
   font-weight: 600;
   font-family: var(--font-display);
   letter-spacing: -0.01em;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.1rem;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  border-bottom: none;
+  padding-bottom: 0;
+  transition: color 0.15s ease;
 }
 
 .text-link:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--accent-hover);
 }
 
 .card {
@@ -298,6 +307,21 @@ textarea {
   margin-bottom: 0;
 }
 
+/* In-content text links */
+.prose a,
+.muted a,
+.lead a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.prose a:hover,
+.muted a:hover,
+.lead a:hover {
+  color: var(--accent-hover);
+}
+
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
@@ -307,8 +331,14 @@ textarea {
   margin-bottom: 1.5rem;
 }
 
+.breadcrumbs a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 .breadcrumbs a:hover {
-  color: var(--accent);
+  color: var(--accent-hover);
 }
 
 .list-check {

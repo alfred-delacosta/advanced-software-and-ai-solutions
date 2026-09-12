@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useId, useRef, useState } from "react";
 import { contact } from "@/data/contact";
 import { services } from "@/data/services";
 import styles from "./ContactForm.module.css";
@@ -12,13 +12,43 @@ const serviceOptions = [
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+type FieldErrors = {
+  name?: string;
+  email?: string;
+  service?: string;
+  message?: string;
+};
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 export default function ContactForm() {
+  const formId = useId();
+  const summaryRef = useRef<HTMLParagraphElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+
+  function validate(payload: {
+    name: string;
+    email: string;
+    service: string;
+    message: string;
+  }): FieldErrors {
+    const next: FieldErrors = {};
+    if (!payload.name.trim()) next.name = "Enter your name.";
+    if (!payload.email.trim()) next.email = "Enter your email address.";
+    else if (!isValidEmail(payload.email.trim())) {
+      next.email = "Enter a valid email address.";
+    }
+    if (!payload.service) next.service = "Select a service.";
+    if (!payload.message.trim()) next.message = "Enter a message.";
+    return next;
+  }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus("submitting");
     setError(null);
 
     const form = event.currentTarget;
@@ -31,6 +61,17 @@ export default function ContactForm() {
       message: String(data.get("message") || ""),
     };
 
+    const nextErrors = validate(payload);
+    setFieldErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) {
+      setStatus("error");
+      setError("Please fix the highlighted fields and try again.");
+      queueMicrotask(() => summaryRef.current?.focus());
+      return;
+    }
+
+    setStatus("submitting");
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -42,18 +83,22 @@ export default function ContactForm() {
         throw new Error(json.error || "Something went wrong. Please email us directly.");
       }
       setStatus("success");
+      setFieldErrors({});
       form.reset();
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Unable to send right now.");
+      queueMicrotask(() => summaryRef.current?.focus());
     }
   }
+
+  const summaryId = `${formId}-error-summary`;
 
   return (
     <div className={styles.layout}>
       <div>
         {status === "success" ? (
-          <div className={styles.success}>
+          <div className={styles.success} role="status" aria-live="polite">
             <h2 className="h3">Message received</h2>
             <p className="muted">
               Thanks for reaching out. We will reply by email soon. If your note is
@@ -63,30 +108,90 @@ export default function ContactForm() {
             <button
               type="button"
               className="btn btn-secondary"
-              onClick={() => setStatus("idle")}
+              onClick={() => {
+                setStatus("idle");
+                setError(null);
+                setFieldErrors({});
+              }}
             >
               Send another message
             </button>
           </div>
         ) : (
           <form className={styles.form} onSubmit={onSubmit} noValidate>
+            {error ? (
+              <p
+                ref={summaryRef}
+                id={summaryId}
+                className={styles.errorSummary}
+                role="alert"
+                tabIndex={-1}
+              >
+                {error}
+              </p>
+            ) : (
+              <div className="sr-only" aria-live="polite" />
+            )}
+
             <div className={styles.field}>
-              <label htmlFor="name">Name</label>
-              <input id="name" name="name" required autoComplete="name" />
+              <label htmlFor={`${formId}-name`}>Name</label>
+              <input
+                id={`${formId}-name`}
+                name="name"
+                required
+                autoComplete="name"
+                aria-invalid={fieldErrors.name ? true : undefined}
+                aria-describedby={
+                  fieldErrors.name ? `${formId}-name-error` : undefined
+                }
+              />
+              {fieldErrors.name ? (
+                <p id={`${formId}-name-error`} className={styles.fieldError}>
+                  {fieldErrors.name}
+                </p>
+              ) : null}
             </div>
             <div className={styles.field}>
-              <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" required autoComplete="email" />
+              <label htmlFor={`${formId}-email`}>Email</label>
+              <input
+                id={`${formId}-email`}
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                aria-invalid={fieldErrors.email ? true : undefined}
+                aria-describedby={
+                  fieldErrors.email ? `${formId}-email-error` : undefined
+                }
+              />
+              {fieldErrors.email ? (
+                <p id={`${formId}-email-error`} className={styles.fieldError}>
+                  {fieldErrors.email}
+                </p>
+              ) : null}
             </div>
             <div className={styles.field}>
-              <label htmlFor="company">
+              <label htmlFor={`${formId}-company`}>
                 Company <span className={styles.optional}>(optional)</span>
               </label>
-              <input id="company" name="company" autoComplete="organization" />
+              <input
+                id={`${formId}-company`}
+                name="company"
+                autoComplete="organization"
+              />
             </div>
             <div className={styles.field}>
-              <label htmlFor="service">Service</label>
-              <select id="service" name="service" required defaultValue="">
+              <label htmlFor={`${formId}-service`}>Service</label>
+              <select
+                id={`${formId}-service`}
+                name="service"
+                required
+                defaultValue=""
+                aria-invalid={fieldErrors.service ? true : undefined}
+                aria-describedby={
+                  fieldErrors.service ? `${formId}-service-error` : undefined
+                }
+              >
                 <option value="" disabled>
                   Select a service
                 </option>
@@ -96,13 +201,34 @@ export default function ContactForm() {
                   </option>
                 ))}
               </select>
+              {fieldErrors.service ? (
+                <p id={`${formId}-service-error`} className={styles.fieldError}>
+                  {fieldErrors.service}
+                </p>
+              ) : null}
             </div>
             <div className={styles.field}>
-              <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" required />
+              <label htmlFor={`${formId}-message`}>Message</label>
+              <textarea
+                id={`${formId}-message`}
+                name="message"
+                required
+                aria-invalid={fieldErrors.message ? true : undefined}
+                aria-describedby={
+                  fieldErrors.message ? `${formId}-message-error` : undefined
+                }
+              />
+              {fieldErrors.message ? (
+                <p id={`${formId}-message-error`} className={styles.fieldError}>
+                  {fieldErrors.message}
+                </p>
+              ) : null}
             </div>
-            {error && <p className={styles.error}>{error}</p>}
-            <button type="submit" className="btn btn-primary" disabled={status === "submitting"}>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={status === "submitting"}
+            >
               {status === "submitting" ? "Sending…" : "Send message"}
             </button>
           </form>

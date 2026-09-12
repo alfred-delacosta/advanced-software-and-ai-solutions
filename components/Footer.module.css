@@ -56,7 +56,7 @@
 }
 
 .links a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .bottom {
@@ -72,7 +72,7 @@
 }
 
 .bottom a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .brandLockup {

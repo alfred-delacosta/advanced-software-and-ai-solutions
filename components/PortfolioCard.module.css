@@ -37,7 +37,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .outcome {
@@ -55,13 +55,14 @@
 }
 
 .status a {
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .status a:hover {
-  text-decoration: underline;
+  color: var(--accent-hover);
 }
 
 .listRow {
