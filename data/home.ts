@@ -14,7 +14,7 @@ export const home = {
   },
   products: {
     eyebrow: "Products",
-    h2: "Tools we ship",
+    h2: "Tools on the way",
   },
   capabilities: {
     eyebrow: "Capabilities",

@@ -94,3 +94,9 @@
 .live {
   /* product cards */
 }
+
+.waitlistNote {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}

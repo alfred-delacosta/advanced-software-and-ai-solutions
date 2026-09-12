@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Products",
   description:
-    "Software products from Advanced Software and AI Solutions, including BriefSeal secure file share and EmailArchiver email to PDF.",
+    "Upcoming software from Advanced Software and AI Solutions, including BriefSeal secure file share and EmailArchiver email to PDF. Join the waitlist.",
   path: "/products",
 });
 
@@ -20,11 +20,11 @@ export default function ProductsPage() {
           <span>Products</span>
         </nav>
         <p className="eyebrow">Products</p>
-        <h1 className="h1">Software we sell and ship</h1>
+        <h1 className="h1">Software we are shipping next</h1>
         <p className="lead">
-          Ready-to-use products built by our team. For custom builds, AI features, and
-          integrations, see{" "}
-          <Link href="/services">Services</Link>.
+          BriefSeal and EmailArchiver are in progress. Join a waitlist to hear
+          when each one opens. For custom builds, AI features, and integrations,
+          see <Link href="/services">Services</Link>.
         </p>
         <div className="grid-2" style={{ marginTop: "1.5rem" }}>
           {products.map((product) => (
