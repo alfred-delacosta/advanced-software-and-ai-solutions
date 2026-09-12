@@ -57,6 +57,7 @@
     --nav-bg: rgba(7, 11, 18, 0.88);
     --primary-fg: #ffffff;
     --accent-text: #6ba3ff;
+    --accent-text-hover: #9ec1ff; /* link hover ≥4.5:1 on void/surface */
     --border-control: #6b778a;
     --danger: #f87171;
   }
@@ -72,6 +73,7 @@
   --nav-bg: rgba(7, 11, 18, 0.88);
   --primary-fg: #ffffff;
   --accent-text: #6ba3ff;
+  --accent-text-hover: #9ec1ff;
   --border-control: #6b778a;
   --danger: #f87171;
 }
@@ -86,6 +88,7 @@
   --nav-bg: rgba(244, 246, 248, 0.88);
   --primary-fg: #ffffff;
   --accent-text: #0958d4;
+  --accent-text-hover: #0958d4;
   --border-control: #6b7585;
   --danger: #b91c1c;
 }
@@ -258,7 +261,7 @@ textarea {
 }
 
 .text-link:hover {
-  color: var(--accent-hover);
+  color: var(--accent-text-hover);
 }
 
 .card {
@@ -319,7 +322,7 @@ textarea {
 .prose a:hover,
 .muted a:hover,
 .lead a:hover {
-  color: var(--accent-hover);
+  color: var(--accent-text-hover);
 }
 
 .breadcrumbs {
@@ -338,7 +341,7 @@ textarea {
 }
 
 .breadcrumbs a:hover {
-  color: var(--accent-hover);
+  color: var(--accent-text-hover);
 }
 
 .list-check {
