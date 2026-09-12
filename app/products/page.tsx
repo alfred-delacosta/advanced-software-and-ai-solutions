@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Products",
   description:
-    "Upcoming software from Advanced Software and AI Solutions, including BriefSeal secure file share and EmailArchiver email to PDF. Join the waitlist.",
+    "BriefSeal and EmailArchiver from ASAIS. Join the waitlist.",
   path: "/products",
 });
 
@@ -22,9 +22,9 @@ export default function ProductsPage() {
         <p className="eyebrow">Products</p>
         <h1 className="h1">Software we are shipping next</h1>
         <p className="lead">
-          BriefSeal and EmailArchiver are in progress. Join a waitlist to hear
-          when each one opens. For custom builds, AI features, and integrations,
-          see <Link href="/services">Services</Link>.
+          Tools in progress from ASAIS. Join a waitlist and we’ll email you when
+          each one opens. No spam. For custom builds, AI features, and
+          integrations, see <Link href="/services/">Services</Link>.
         </p>
         <div className="grid-2" style={{ marginTop: "1.5rem" }}>
           {products.map((product) => (
@@ -37,10 +37,10 @@ export default function ProductsPage() {
             We also design and build custom software for US companies. Tell us what you need.
           </p>
           <div className="btn-row justify-center">
-            <Link href="/contact" className="btn btn-primary">
+            <Link href="/contact/" className="btn btn-primary">
               Start a project
             </Link>
-            <Link href="/services" className="btn btn-secondary">
+            <Link href="/services/" className="btn btn-secondary">
               Explore services
             </Link>
           </div>

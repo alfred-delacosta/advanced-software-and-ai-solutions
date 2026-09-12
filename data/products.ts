@@ -7,6 +7,7 @@ export type Product = {
   summary: string;
   statusLabel: string;
   ctaLabel: string;
+  microcopy: string;
   waitlistSubject: string;
   href?: string;
   thumbSrc: string;
@@ -15,13 +16,11 @@ export type Product = {
 
 function waitlistMailto(productTitle: string, subject: string) {
   const body = [
-    `Hi ASAIS,`,
+    `I want to join the waitlist for ${productTitle}.`,
     ``,
-    `Please add me to the ${productTitle} waitlist.`,
-    ``,
-    `Name:`,
+    `Email:`,
+    `Name (optional):`,
     `Company (optional):`,
-    `Notes (optional):`,
     ``,
   ].join("\n");
   return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -35,9 +34,9 @@ export const products: Product[] = [
     summary:
       "Browser-sealed file share for businesses that handle personal information: expiring password-gated links, wipe from the dashboard, no email attachments left sitting forever.",
     statusLabel: "Coming soon",
-    ctaLabel: "Join waitlist",
-    waitlistSubject: "Waitlist: BriefSeal",
-    // No outbound product URL until DNS / launch is live.
+    ctaLabel: "Join the waitlist",
+    microcopy: "Be first to know when BriefSeal opens. No spam.",
+    waitlistSubject: "BriefSeal waitlist",
     thumbSrc: "/products/briefseal-portfolio.svg",
     thumbAlt: "BriefSeal secure file share",
   },
@@ -48,8 +47,9 @@ export const products: Product[] = [
     summary:
       "Upload .eml or .mbox files and export visual PDFs that match how the email looks, built for archiving and handoff without connecting a live inbox.",
     statusLabel: "Coming soon",
-    ctaLabel: "Join waitlist",
-    waitlistSubject: "Waitlist: EmailArchiver",
+    ctaLabel: "Join the waitlist",
+    microcopy: "Get notified when EmailArchiver is ready. Email only.",
+    waitlistSubject: "EmailArchiver waitlist",
     thumbSrc: "/products/emailarchiver-portfolio.svg",
     thumbAlt: "EmailArchiver email to PDF",
   },

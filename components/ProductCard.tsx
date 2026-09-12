@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Product } from "@/data/products";
 import { productWaitlistHref } from "@/data/products";
 import styles from "./PortfolioCard.module.css";
@@ -30,10 +31,16 @@ export default function ProductCard({ product }: { product: Product }) {
             <a href={waitlistHref}>{product.ctaLabel}</a>
           )}
         </p>
+        <p className={`muted ${styles.waitlistNote}`}>{product.microcopy}</p>
         <p className={`muted ${styles.waitlistNote}`}>
-          Opens your email app to reach ASAIS. We only use waitlist notes to
-          follow up about {product.title} availability—not for unrelated
-          marketing lists.
+          By sharing your email, you ask to join the {product.title} interest
+          list. We’ll use it only to email you about launch and early access for
+          that product. See our{" "}
+          <Link href="/privacy/">Privacy Policy</Link>. Unsubscribe anytime via{" "}
+          <a href="mailto:contact@advancedsoftwareandaisolutions.com">
+            contact@advancedsoftwareandaisolutions.com
+          </a>
+          .
         </p>
       </div>
     </article>

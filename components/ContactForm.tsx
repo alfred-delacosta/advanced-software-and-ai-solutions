@@ -292,11 +292,22 @@ export default function ContactForm() {
               ) : null}
             </div>
             <p className={`muted ${styles.privacyNote}`}>
-              Submissions go to ASAIS by email
-              {formspreeEndpoint ? " (or Formspree when configured)" : ""}. We
-              use them to reply about your inquiry—not for unrelated marketing.
-              Prefer email?{" "}
+              We use inquiries only to reply about your message—not for unrelated
+              marketing. See our{" "}
+              <a href="/privacy/">Privacy Policy</a>. Prefer email?{" "}
               <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              {formspreeEndpoint ? (
+                <>
+                  {" "}
+                  Submissions are processed by Formspree to deliver your message
+                  to us.
+                </>
+              ) : (
+                <>
+                  {" "}
+                  Submit opens a pre-filled email to us (mailto).
+                </>
+              )}
             </p>
             <button
               type="submit"
