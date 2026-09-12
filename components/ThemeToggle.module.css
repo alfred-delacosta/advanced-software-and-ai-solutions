@@ -1,7 +1,7 @@
 .group {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-control);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--panel);
@@ -13,7 +13,7 @@
   background: transparent;
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.4rem 0.55rem;
@@ -23,7 +23,7 @@
 }
 
 .group button + button {
-  border-left: 1px solid var(--border);
+  border-left: 1px solid var(--border-control);
 }
 
 .group button:hover {

@@ -96,7 +96,7 @@
 
 .stepNum {
   font-family: var(--font-mono);
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem;

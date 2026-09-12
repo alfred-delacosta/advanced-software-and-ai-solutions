@@ -39,7 +39,8 @@
 
 .heading {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.8125rem; /* ~13px — 508 footer heading floor */
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text);
@@ -56,7 +57,7 @@
 }
 
 .links a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .bottom {
@@ -72,7 +73,7 @@
 }
 
 .bottom a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .brandLockup {
