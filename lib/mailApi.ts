@@ -1,6 +1,6 @@
 /**
  * Client for the Hostinger-hosted ASAIS mail API (Resend).
- * Public base URL only — never put Resend API keys in the frontend.
+ * Public base URL only; never put Resend API keys in the frontend.
  *
  * Expected contract (confirm with Web Developer / asais-mail-api):
  * - POST {base}/api/contact
@@ -13,18 +13,18 @@ export type ContactPayload = {
   name: string;
   email: string;
   company?: string;
-  service: string;
+  service?: string;
   message: string;
-  /** Honeypot — leave empty */
+  /** Honeypot: leave empty */
   website?: string;
 };
 
 export type WaitlistPayload = {
   email: string;
-  product: "briefseal" | "emailarchiver" | string;
+  product: "briefseal" | "emailarchiver" | "both";
   name?: string;
   company?: string;
-  /** Honeypot — leave empty */
+  /** Honeypot: leave empty */
   website?: string;
 };
 
@@ -69,9 +69,13 @@ async function postJson(path: string, body: unknown): Promise<MailApiResult> {
     }
 
     if (!res.ok) {
+      const fallback =
+        res.status === 429
+          ? "Too many requests. Try again later."
+          : "Unable to send right now. Please try again or email us directly.";
       return {
         ok: false,
-        error: detail || "Unable to send right now. Please try again or email us directly.",
+        error: detail || fallback,
         status: res.status,
       };
     }
