@@ -41,7 +41,11 @@ export default function Footer() {
         <span>
           © {year} {company.copyrightName}. {company.remoteFirst}.
         </span>
-        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        <div className={styles.bottomLinks}>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </div>
       </div>
     </footer>
   );

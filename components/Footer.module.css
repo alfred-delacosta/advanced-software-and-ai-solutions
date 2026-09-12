@@ -72,3 +72,14 @@
 .bottom a:hover {
   color: var(--accent);
 }
+
+.bottomLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+
+.bottomLinks a {
+  color: var(--text-muted);
+}
