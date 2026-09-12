@@ -20,12 +20,14 @@ Open http://localhost:3000
 
 ## Environment
 
-Copy `.env.example` to `.env.local` if you want optional Formspree:
+Copy `.env.example` to `.env.local` for local builds:
 
-- `NEXT_PUBLIC_FORMSPREE_ENDPOINT` - optional contact form POST URL (`https://formspree.io/f/...`)
-- `NEXT_PUBLIC_FORMSPREE_WAITLIST_ENDPOINT` - optional (reserved; waitlist CTAs default to mailto)
+- `NEXT_PUBLIC_MAIL_API_URL` - public base URL of the Hostinger Node mail API (Resend). When set, contact and waitlist forms POST JSON to `/api/contact` and `/api/waitlist` and show success only after HTTP 200.
+- `NEXT_PUBLIC_FORMSPREE_ENDPOINT` - optional legacy fallback if the mail API URL is unset.
+- Mailto remains a last-resort fallback when neither is configured.
 
-Without Formspree, the contact form validates in the browser and opens a pre-filled **mailto:** to `contact@advancedsoftwareandaisolutions.com`. Mailto fallback is always shown on the contact page.
+Server secrets (`RESEND_API_KEY`, `FROM_EMAIL`, `TO_EMAIL`) live only on the mail API host, never in this static site.
+
 
 ## Scripts
 

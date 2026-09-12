@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FormEvent, useId, useRef, useState } from "react";
 import { contact } from "@/data/contact";
 import { services } from "@/data/services";
+import { isMailApiConfigured, submitContact } from "@/lib/mailApi";
 import styles from "./ContactForm.module.css";
 
 const serviceOptions = [
@@ -54,7 +55,12 @@ export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
-  const [sentVia, setSentVia] = useState<"formspree" | "mailto" | null>(null);
+  const [sentVia, setSentVia] = useState<"mail-api" | "formspree" | "mailto" | null>(
+    null,
+  );
+
+  const mailApi = isMailApiConfigured();
+  const useFormspree = !mailApi && Boolean(formspreeEndpoint);
 
   function validate(payload: {
     name: string;
@@ -85,6 +91,7 @@ export default function ContactForm() {
       company: String(data.get("company") || ""),
       service: String(data.get("service") || ""),
       message: String(data.get("message") || ""),
+      website: String(data.get("website") || ""),
     };
 
     const nextErrors = validate(payload);
@@ -98,7 +105,29 @@ export default function ContactForm() {
 
     setStatus("submitting");
 
-    if (formspreeEndpoint) {
+    if (mailApi) {
+      const result = await submitContact({
+        name: payload.name.trim(),
+        email: payload.email.trim(),
+        company: payload.company.trim(),
+        service: payload.service,
+        message: payload.message.trim(),
+        website: payload.website,
+      });
+      if (!result.ok) {
+        setStatus("error");
+        setError(result.error);
+        queueMicrotask(() => summaryRef.current?.focus());
+        return;
+      }
+      setSentVia("mail-api");
+      setStatus("success");
+      setFieldErrors({});
+      form.reset();
+      return;
+    }
+
+    if (useFormspree) {
       try {
         const res = await fetch(formspreeEndpoint, {
           method: "POST",
@@ -135,7 +164,7 @@ export default function ContactForm() {
       }
     }
 
-    // Static default: pre-filled mailto (Hostinger Website-safe, no Node).
+    // Last-resort fallback when mail API is not configured.
     const mailto = buildMailto({
       name: payload.name.trim(),
       email: payload.email.trim(),
@@ -148,6 +177,18 @@ export default function ContactForm() {
     setStatus("success");
     setFieldErrors({});
   }
+
+  const submitLabel = mailApi
+    ? status === "submitting"
+      ? "Sending…"
+      : "Send message"
+    : useFormspree
+      ? status === "submitting"
+        ? "Sending…"
+        : "Send message"
+      : status === "submitting"
+        ? "Sending…"
+        : "Open email draft";
 
   return (
     <div className={styles.layout}>
@@ -292,12 +333,27 @@ export default function ContactForm() {
                 </p>
               ) : null}
             </div>
+            {/* Honeypot for mail API */}
+            <input
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              className={styles.hp}
+              aria-hidden="true"
+            />
             <p className={`muted ${styles.privacyNote}`}>
-              We use inquiries only to reply about your message, not for
+              We use your message only to reply about your inquiry, not for
               unrelated marketing. See our{" "}
               <Link href="/privacy/">Privacy Policy</Link>. Prefer email?{" "}
               <a href={`mailto:${contact.email}`}>{contact.email}</a>
-              {formspreeEndpoint ? (
+              {mailApi ? (
+                <>
+                  {" "}
+                  Your submission is sent through our mail service (Resend) so we
+                  can receive and reply by email.
+                </>
+              ) : useFormspree ? (
                 <>
                   {" "}
                   If Formspree is enabled, Formspree processes the submission to
@@ -306,8 +362,8 @@ export default function ContactForm() {
               ) : (
                 <>
                   {" "}
-                  Submit opens your email app with a draft to us (mailto). No
-                  server post.
+                  Submit opens your email app with a draft to us (mailto
+                  fallback). No server post until the mail API URL is configured.
                 </>
               )}
             </p>
@@ -316,11 +372,7 @@ export default function ContactForm() {
               className="btn btn-primary"
               disabled={status === "submitting"}
             >
-              {status === "submitting"
-                ? "Sending…"
-                : formspreeEndpoint
-                  ? "Send message"
-                  : "Open email draft"}
+              {submitLabel}
             </button>
           </form>
         )}
@@ -334,9 +386,11 @@ export default function ContactForm() {
             <a href={`mailto:${contact.email}`}>{contact.email}</a>.
           </p>
           <p className="muted" style={{ marginBottom: 0 }}>
-            We are remote-first across the United States and typically respond within
-            one business day. This site is static-hosted; the form uses mailto
-            {formspreeEndpoint ? " or Formspree" : ""} so no server is required.
+            We are remote-first across the United States and typically respond
+            within one business day. The marketing Site is static-hosted;
+            {mailApi
+              ? " forms POST to our Hostinger mail API (Resend) and wait for success before confirming."
+              : " forms use mailto fallback until NEXT_PUBLIC_MAIL_API_URL is set at build time."}
           </p>
         </article>
         <article className="card">

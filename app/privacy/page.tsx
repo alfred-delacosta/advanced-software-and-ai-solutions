@@ -255,16 +255,20 @@ export default function PrivacyPage() {
                     <strong>Hostinger</strong>
                   </td>
                   <td>
-                    Hosts and delivers the static Site; may process technical logs
+                    Hosts the static marketing Site and (separately) a small
+                    Node.js mail API used only to accept contact/waitlist form
+                    posts and hand them to our email provider; may process
+                    technical logs
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <strong>Formspree</strong>
+                    <strong>Resend</strong>
                   </td>
                   <td>
-                    Processes contact or waitlist form submissions when that
-                    optional integration is enabled at build time
+                    Email delivery provider for contact-form and product waitlist
+                    / interest messages (and related transactional mail such as
+                    confirmations), when that integration is enabled
                   </td>
                 </tr>
                 <tr>
@@ -297,13 +301,30 @@ export default function PrivacyPage() {
               </tbody>
             </table>
           </div>
-          <p>
-            By default, contact and waitlist interest reach us by{" "}
-            <strong>mailto</strong> (you send email from your own mail client).
-            If Formspree is configured, Formspree receives those form posts to
-            deliver them to us. We do not operate a Site Node.js API on Hostinger
-            Website hosting.
-          </p>
+          <h3 className="h3">How contact and waitlist forms are delivered</h3>
+          <ul>
+            <li>
+              The public Site is a <strong>static</strong> site. Contact and
+              waitlist forms <strong>POST</strong> to our Hostinger-hosted mail
+              API and wait for a successful response before showing confirmation.
+            </li>
+            <li>
+              The mail API forwards the submission through <strong>Resend</strong>{" "}
+              to ASAIS (typically contact@advancedsoftwareandaisolutions.com or an
+              equivalent inbox we control).
+            </li>
+            <li>
+              The mail API is <strong>not</strong> a general application backend;
+              it exists to receive form posts and send email.
+            </li>
+            <li>
+              <strong>Mailto</strong> and <strong>Formspree</strong> are not the
+              primary path when Resend and the mail API are enabled. If we
+              temporarily fall back to mailto or another form relay, we will
+              describe that on the form and keep this Privacy Policy accurate.
+            </li>
+          </ul>
+          <p>We do <strong>not</strong> sell form or waitlist data to advertisers.</p>
 
           <h2 className="h2">5. Retention</h2>
           <ul>
