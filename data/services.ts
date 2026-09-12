@@ -22,9 +22,9 @@ export const services: Service[] = [
       "Purpose-built web apps, APIs, and internal tools designed around how your team actually works.",
     description: `Growing teams outgrow spreadsheets, duct-taped SaaS stacks, and one-size-fits-all platforms. Custom software development is how you encode your process into reliable systems that scale with revenue instead of headcount.
 
-At Advanced Software and AI Solutions, we build production-ready applications for US companies that need more than a template. That means clear product thinking, solid architecture, and code your future team can maintain. We favor pragmatic stacks—TypeScript, modern web frameworks, well-structured APIs, and cloud services that match your risk and budget.
+At Advanced Software and AI Solutions, we build production-ready applications for US companies that need more than a template. That means clear product thinking, solid architecture, and code your future team can maintain. We favor pragmatic stacks - TypeScript, modern web frameworks, well-structured APIs, and cloud services that match your risk and budget.
 
-Engagements typically start with discovery: we map workflows, constraints, and success metrics before writing a line of code. From there we ship in thin vertical slices so stakeholders see working software early. You get documented decisions, testable modules, and a roadmap for what comes after launch—not a black-box handoff.
+Engagements typically start with discovery: we map workflows, constraints, and success metrics before writing a line of code. From there we ship in thin vertical slices so stakeholders see working software early. You get documented decisions, testable modules, and a roadmap for what comes after launch - not a black-box handoff.
 
 Whether you need a customer-facing portal, an operations console, a partner integration hub, or a greenfield product MVP, we focus on clarity, security basics, and measurable outcomes. Our remote-first model keeps collaboration tight across time zones while keeping overhead low.`,
     href: "/services/custom-software-development",
@@ -74,7 +74,7 @@ Whether you need a customer-facing portal, an operations console, a partner inte
     shortTitle: "AI & ML",
     summary:
       "Practical AI features and ML workflows grounded in your data, not hype demos.",
-    description: `AI only creates value when it is wired into real workflows with clear ownership of data quality, evaluation, and failure modes. We help US companies ship AI-assisted features that save time or improve decisions—without turning your product into an experiment nobody trusts.
+    description: `AI only creates value when it is wired into real workflows with clear ownership of data quality, evaluation, and failure modes. We help US companies ship AI-assisted features that save time or improve decisions - without turning your product into an experiment nobody trusts.
 
 Our AI and machine learning work spans retrieval-augmented generation for knowledge bases, classification and routing for operations queues, forecasting support for planning teams, and agent-style assistants that call your existing tools safely. We start by defining the job to be done, the acceptable error rate, and how humans stay in the loop.
 
@@ -128,7 +128,7 @@ You leave with something your team can operate: documented pipelines, guardrails
     shortTitle: "Automation",
     summary:
       "Connect the tools you already use and automate the busywork between them.",
-    description: `Most operational drag is not a missing dashboard—it is copy-paste between systems, inconsistent handoffs, and manual reconciliations that only one person understands. Automation and integrations turn those fragile rituals into reliable flows.
+    description: `Most operational drag is not a missing dashboard - it is copy-paste between systems, inconsistent handoffs, and manual reconciliations that only one person understands. Automation and integrations turn those fragile rituals into reliable flows.
 
 We connect CRMs, ERPs, billing platforms, data warehouses, messaging tools, and custom apps through APIs, webhooks, and carefully designed jobs. The goal is fewer human touchpoints on routine work and a single source of truth your team can trust.
 
@@ -182,11 +182,11 @@ Whether you need a handful of critical syncs or a broader automation program, we
     shortTitle: "Consulting",
     summary:
       "Independent guidance on architecture, build-vs-buy, and AI readiness before you commit budget.",
-    description: `Sometimes the highest-leverage work is a clear recommendation—not another sprint of code. Software and AI consulting gives leadership a grounded view of options, tradeoffs, and sequencing so investment lands on the right problems.
+    description: `Sometimes the highest-leverage work is a clear recommendation - not another sprint of code. Software and AI consulting gives leadership a grounded view of options, tradeoffs, and sequencing so investment lands on the right problems.
 
 We advise on application architecture, platform selection, technical due diligence, AI opportunity sizing, and delivery operating models. Engagements are structured as focused assessments or ongoing advisory retainers depending on how fast decisions need to move.
 
-You get written findings, prioritized recommendations, and a roadmap your team can execute—whether that execution stays in-house, with us, or with another partner. We stay vendor-neutral on tools and honest when buying a product beats building one.
+You get written findings, prioritized recommendations, and a roadmap your team can execute - whether that execution stays in-house, with us, or with another partner. We stay vendor-neutral on tools and honest when buying a product beats building one.
 
 Because we also build, our advice reflects what it takes to ship and operate systems in production. That practical bias helps avoid slideware architectures that collapse under real constraints. We work remotely with US clients and adapt communication cadence to your stakeholders.`,
     href: "/services/software-ai-consulting",

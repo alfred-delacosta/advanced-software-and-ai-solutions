@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--surface);
+  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -11,8 +11,8 @@
 .thumb {
   height: 140px;
   background:
-    radial-gradient(circle at 30% 30%, rgba(45, 212, 191, 0.18), transparent 55%),
-    linear-gradient(145deg, var(--surface-2), var(--surface));
+    radial-gradient(circle at 30% 30%, var(--accent-muted), transparent 55%),
+    linear-gradient(145deg, var(--panel-2), var(--panel));
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
@@ -35,7 +35,7 @@
 .tag {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -62,6 +62,32 @@
 
 .status a:hover {
   text-decoration: underline;
+}
+
+.listRow {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.listMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  align-items: center;
+}
+
+.statusInline {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.listTitle {
+  margin: 0;
 }
 
 .live {

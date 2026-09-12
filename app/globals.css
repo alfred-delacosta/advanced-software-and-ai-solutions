@@ -1,21 +1,85 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk[wght].ttf") format("truetype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --bg: #0a0c10;
-  --surface: #12151c;
-  --surface-2: #1a1f28;
-  --text: #f3f4f6;
-  --text-muted: #9ca3af;
-  --border: #2a303c;
-  --accent: #2dd4bf;
-  --accent-hover: #14b8a6;
-  --accent-muted: rgba(45, 212, 191, 0.12);
-  --focus: #5eead4;
-  --danger: #f87171;
-  --primary-fg: #042f2e;
+  color-scheme: light dark;
+
+  --paper: #f4f6f8;
+  --ink: #0b1220;
+  --muted: #5b6575;
+  --line: #d7dde5;
+  --void: #070b12;
+  --surface: #0e1522;
+  --ink-paper: #e8eef7;
+  --muted-dark: #9aa6b8;
+  --line-dark: #1c2738;
+
+  --accent: #0b6dff;
+  --accent-hover: #0958d4;
+  --accent-muted: rgba(11, 109, 255, 0.12);
+  --accent-soft: #2563eb;
+  --focus: #0b6dff;
+  --danger: #dc2626;
+  --primary-fg: #ffffff;
+
+  --bg: var(--paper);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --border: var(--line);
+  --panel: #ffffff;
+  --panel-2: #eef1f4;
+  --nav-bg: rgba(244, 246, 248, 0.88);
+
   --nav-h: 72px;
-  --radius: 8px;
+  --radius: 2px;
   --max: 72rem;
+
+  --font-display: "Space Grotesk", system-ui, -apple-system, Segoe UI, sans-serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--void);
+    --text: var(--ink-paper);
+    --text-muted: var(--muted-dark);
+    --border: var(--line-dark);
+    --panel: var(--surface);
+    --panel-2: #121a28;
+    --nav-bg: rgba(7, 11, 18, 0.88);
+    --primary-fg: #ffffff;
+    --danger: #f87171;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: var(--void);
+  --text: var(--ink-paper);
+  --text-muted: var(--muted-dark);
+  --border: var(--line-dark);
+  --panel: var(--surface);
+  --panel-2: #121a28;
+  --nav-bg: rgba(7, 11, 18, 0.88);
+  --primary-fg: #ffffff;
+  --danger: #f87171;
+}
+
+:root[data-theme="light"] {
+  --bg: var(--paper);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --border: var(--line);
+  --panel: #ffffff;
+  --panel-2: #eef1f4;
+  --nav-bg: rgba(244, 246, 248, 0.88);
+  --primary-fg: #ffffff;
+  --danger: #dc2626;
 }
 
 *,
@@ -68,52 +132,56 @@ textarea {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 4.5rem 0;
 }
 
 @media (min-width: 960px) {
   .section {
-    padding: 5.5rem 0;
+    padding: 6rem 0;
   }
 }
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
 }
 
 .h1 {
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 1rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin: 0 0 1.1rem;
+  font-weight: 600;
 }
 
 .h2 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
   margin: 0 0 1rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .h3 {
-  font-size: 1.125rem;
-  line-height: 1.35;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.3;
   margin: 0 0 0.5rem;
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .lead {
   font-size: 1.125rem;
   color: var(--text-muted);
   margin: 0 0 1.5rem;
-  max-width: 42rem;
+  max-width: 40rem;
 }
 
 .muted {
@@ -123,7 +191,8 @@ textarea {
 .btn-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.85rem 1.25rem;
 }
 
 .btn {
@@ -132,10 +201,12 @@ textarea {
   justify-content: center;
   gap: 0.5rem;
   min-height: 2.75rem;
-  padding: 0.65rem 1.15rem;
+  padding: 0.65rem 1.2rem;
   border-radius: var(--radius);
   border: 1px solid transparent;
   font-weight: 600;
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
@@ -160,15 +231,30 @@ textarea {
   background: var(--accent-muted);
 }
 
+.text-link {
+  color: var(--text);
+  font-weight: 600;
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.1rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.text-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
 .card {
-  background: var(--surface);
+  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 1.35rem;
 }
 
 .card:hover {
-  border-color: rgba(45, 212, 191, 0.35);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
 }
 
 .grid-2,
@@ -188,12 +274,6 @@ textarea {
   .grid-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .grid-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1152px) {
   .grid-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -251,16 +331,17 @@ textarea {
 }
 
 .cta-band {
-  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 2rem;
+  padding: 2.25rem;
   text-align: center;
 }
 
 .cta-band .lead {
   margin-inline: auto;
 }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -315,8 +396,7 @@ textarea {
 .lead-center { margin-inline: auto; }
 .section-flush-top { padding-top: 0; }
 .band-surface {
-  background: var(--surface);
+  background: var(--panel);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-

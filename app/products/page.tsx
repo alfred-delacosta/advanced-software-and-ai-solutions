@@ -38,7 +38,7 @@ export default function ProductsPage() {
           </p>
           <div className="btn-row justify-center">
             <Link href="/contact" className="btn btn-primary">
-              Get in touch
+              Start a project
             </Link>
             <Link href="/services" className="btn btn-secondary">
               Explore services

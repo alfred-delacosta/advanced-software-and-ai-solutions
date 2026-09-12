@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { business } from "@/data/business";
+import { company } from "@/data/company";
+import { contact } from "@/data/contact";
 import { services } from "@/data/services";
 import styles from "./Footer.module.css";
 
@@ -10,17 +11,18 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <div>
-          <strong>{business.name}</strong>
-          <p className={styles.blurb}>{business.description}</p>
+          <strong className={styles.brand}>{company.shortName}</strong>
+          <p className={styles.blurb}>{company.description}</p>
+          <p className={styles.trust}>{company.trustLine}</p>
         </div>
         <div>
           <p className={styles.heading}>Company</p>
           <div className={styles.links}>
-            <Link href="/about">About</Link>
             <Link href="/products">Products</Link>
             <Link href="/portfolio">Portfolio</Link>
             <Link href="/contact">Contact</Link>
             <Link href="/services">Services</Link>
+            <a href={company.url}>{company.url.replace("https://", "")}</a>
           </div>
         </div>
         <div>
@@ -36,9 +38,9 @@ export default function Footer() {
       </div>
       <div className={`container ${styles.bottom}`}>
         <span>
-          © {year} {business.name}. Remote-first across the United States.
+          © {year} {company.copyrightName}. {company.remoteFirst}.
         </span>
-        <a href={`mailto:${business.email}`}>{business.email}</a>
+        <a href={`mailto:${contact.email}`}>{contact.email}</a>
       </div>
     </footer>
   );

@@ -57,7 +57,7 @@ export default function AboutPage() {
           </p>
           <p>
             We are remote-first across the United States. Collaboration happens
-            over email, shared docs, and scheduled working sessions—keeping the
+            over email, shared docs, and scheduled working sessions, keeping the
             focus on delivery rather than geography.
           </p>
           <p>
@@ -87,7 +87,7 @@ export default function AboutPage() {
           </p>
           <div className="btn-row justify-center">
             <Link href="/contact" className="btn btn-primary">
-              Get in touch
+              Start a project
             </Link>
             <a href={`mailto:${business.email}`} className="btn btn-secondary">
               {business.email}

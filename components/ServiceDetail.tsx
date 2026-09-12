@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Service } from "@/data/services";
 import { getRelatedServices } from "@/data/services";
+import { company } from "@/data/company";
+import { contact } from "@/data/contact";
 
 export default function ServiceDetail({ service }: { service: Service }) {
   const related = getRelatedServices(service.slug);
@@ -17,15 +19,15 @@ export default function ServiceDetail({ service }: { service: Service }) {
     description: service.summary,
     provider: {
       "@type": "Organization",
-      name: "Advanced Software and AI Solutions",
-      url: "https://advancedsoftwareandaisolutions.com",
-      email: "contact@advancedsoftwareandaisolutions.com",
+      name: company.name,
+      url: company.url,
+      email: contact.email,
     },
     areaServed: {
       "@type": "Country",
       name: "United States",
     },
-    url: `https://advancedsoftwareandaisolutions.com${service.href}`,
+    url: `${company.url}${service.href}`,
   };
 
   return (
@@ -47,7 +49,7 @@ export default function ServiceDetail({ service }: { service: Service }) {
         <p className="lead">{service.summary}</p>
         <div className="btn-row" style={{ marginBottom: "2rem" }}>
           <Link href="/contact" className="btn btn-primary">
-            Get in touch
+            Start a project
           </Link>
           <Link href="/services" className="btn btn-secondary">
             All services
