@@ -17,7 +17,7 @@ export default function NotFound() {
             View services
           </Link>
           <Link href="/contact" className="btn btn-secondary">
-            Get in touch
+            Start a project
           </Link>
         </div>
       </div>

@@ -3,8 +3,8 @@
   top: 0;
   z-index: 50;
   height: var(--nav-h);
-  backdrop-filter: blur(10px);
-  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(12px);
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--border);
 }
 
@@ -17,36 +17,63 @@
 }
 
 .brand {
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
   min-width: 0;
   flex-shrink: 1;
+  line-height: 0;
 }
 
-.brandShort {
-  display: inline;
+.lockup {
+  height: 28px;
+  width: auto;
 }
 
-.brandFull {
+.lockupLight {
+  display: block;
+}
+
+.lockupDark {
   display: none;
 }
 
-.amp {
-  color: var(--accent);
+:global(:root[data-theme="dark"]) .lockupLight {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .lockupDark {
+  display: block;
+}
+
+:global(:root[data-theme="light"]) .lockupLight {
+  display: block;
+}
+
+:global(:root[data-theme="light"]) .lockupDark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"])) .lockupLight {
+    display: none;
+  }
+  :global(:root:not([data-theme="light"])) .lockupDark {
+    display: block;
+  }
 }
 
 .desktopNav {
   display: none;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
 .desktopNav a {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   padding: 0.25rem 0;
-  border-bottom: 2px solid transparent;
+  border-bottom: 1px solid transparent;
 }
 
 .desktopNav a:hover {
@@ -61,7 +88,7 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   flex-shrink: 0;
 }
 
@@ -73,7 +100,7 @@
   height: 2.5rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  background: var(--surface);
+  background: var(--panel);
   cursor: pointer;
 }
 
@@ -145,8 +172,16 @@
   font-size: 0.875rem;
 }
 
+.themeDesktop {
+  display: none;
+}
+
+.mobileTheme {
+  padding: 0.35rem 0;
+}
+
 .ctaWrap {
-  display: inline-flex;
+  display: none;
 }
 
 .ctaBtn {
@@ -156,13 +191,8 @@
 }
 
 @media (min-width: 960px) {
-  .brandShort {
-    display: none;
-  }
-
-  .brandFull {
-    display: inline;
-    white-space: nowrap;
+  .lockup {
+    height: 30px;
   }
 
   .desktopNav {
@@ -173,10 +203,18 @@
     display: none;
   }
 
+  .themeDesktop {
+    display: inline-flex;
+  }
+
+  .ctaWrap {
+    display: inline-flex;
+  }
+
   .ctaBtn {
-    min-height: 2.75rem;
-    padding: 0.65rem 1.15rem;
-    font-size: inherit;
+    min-height: 2.5rem;
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
   }
 
   .mobilePanel {

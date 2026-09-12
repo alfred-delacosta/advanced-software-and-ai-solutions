@@ -19,7 +19,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className={styles.status}>
           {product.href ? (
             <a href={product.href} target="_blank" rel="noopener noreferrer">
-              View on GitHub
+              View product
             </a>
           ) : (
             product.statusLabel

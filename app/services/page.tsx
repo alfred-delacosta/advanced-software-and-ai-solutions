@@ -22,7 +22,7 @@ export default function ServicesPage() {
         <p className="eyebrow">Services</p>
         <h1 className="h1">Software, AI, and automation services</h1>
         <p className="lead">
-          Choose a focused engagement—or combine them. Every engagement starts with
+          Choose a focused engagement, or combine them. Every engagement starts with
           discovery so we solve the right problem before we scale the solution.
         </p>
         <div className="grid-2" style={{ marginTop: "1.5rem" }}>
@@ -36,7 +36,7 @@ export default function ServicesPage() {
             Send a short note about your goals. We will recommend a practical path forward.
           </p>
           <Link href="/contact" className="btn btn-primary">
-            Get in touch
+            Start a project
           </Link>
         </div>
       </div>

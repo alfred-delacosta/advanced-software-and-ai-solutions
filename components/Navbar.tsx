@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { business } from "@/data/business";
+import { contact } from "@/data/contact";
+import ThemeToggle from "./ThemeToggle";
 import styles from "./Navbar.module.css";
 
 const links = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/products", label: "Products" },
-  { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
 ];
@@ -30,14 +30,24 @@ export default function Navbar() {
         <Link
           href="/"
           className={styles.brand}
-          aria-label="Advanced Software & AI Solutions"
-          title="Advanced Software & AI Solutions"
+          aria-label="Advanced Software and AI Solutions"
+          title="Advanced Software and AI Solutions"
           onClick={() => setOpen(false)}
         >
-          <span className={styles.brandShort}>ASAIS</span>
-          <span className={styles.brandFull}>
-            Advanced Software <span className={styles.amp}>&amp;</span> AI Solutions
-          </span>
+          <img
+            src="/brand/lockup-asais-light.svg"
+            alt=""
+            className={`${styles.lockup} ${styles.lockupLight}`}
+            width={148}
+            height={32}
+          />
+          <img
+            src="/brand/lockup-asais-dark.svg"
+            alt=""
+            className={`${styles.lockup} ${styles.lockupDark}`}
+            width={148}
+            height={32}
+          />
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Primary">
@@ -54,9 +64,12 @@ export default function Navbar() {
         </nav>
 
         <div className={styles.actions}>
+          <div className={styles.themeDesktop}>
+            <ThemeToggle />
+          </div>
           <div className={styles.ctaWrap}>
             <Link href="/contact" className={`btn btn-primary ${styles.ctaBtn}`}>
-              Get in touch
+              Start a project
             </Link>
           </div>
           <button
@@ -89,15 +102,18 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <div className={styles.mobileTheme}>
+              <ThemeToggle />
+            </div>
             <Link
               href="/contact"
               className={`btn btn-primary ${styles.mobileCta}`}
               onClick={() => setOpen(false)}
             >
-              Get in touch
+              Start a project
             </Link>
           </nav>
-          <p className={`muted ${styles.mobileEmail}`}>{business.email}</p>
+          <p className={`muted ${styles.mobileEmail}`}>{contact.email}</p>
         </div>
       </div>
     </header>

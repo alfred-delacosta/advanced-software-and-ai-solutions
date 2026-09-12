@@ -13,7 +13,7 @@
 .form {
   display: grid;
   gap: 1rem;
-  background: var(--surface);
+  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.25rem;
@@ -57,7 +57,7 @@
 
 .success {
   background: var(--accent-muted);
-  border: 1px solid rgba(45, 212, 191, 0.35);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
   border-radius: var(--radius);
   padding: 1.25rem;
 }

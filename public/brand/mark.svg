@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ASAIS mark">
-  <rect width="64" height="64" rx="14" ry="14" fill="#f4f6f8"/>
   <line x1="32.0" y1="11.0" x2="22.5" y2="32.0" stroke="#0b6dff" stroke-width="1.35" stroke-linecap="round"/>
   <line x1="22.5" y1="32.0" x2="13.0" y2="53.0" stroke="#0b6dff" stroke-width="1.35" stroke-linecap="round"/>
   <line x1="32.0" y1="11.0" x2="41.5" y2="32.0" stroke="#0b6dff" stroke-width="1.35" stroke-linecap="round"/>

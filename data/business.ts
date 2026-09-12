@@ -1,13 +1,19 @@
+import { company } from "./company";
+import { contact } from "./contact";
+
+/** @deprecated Prefer `company` + `contact`. Kept for existing imports. */
 export const business = {
-  name: "Advanced Software and AI Solutions",
-  legalName: "Advanced Software and AI Solutions LLC",
-  shortName: "ASAIS",
-  email: "contact@advancedsoftwareandaisolutions.com",
-  url: "https://advancedsoftwareandaisolutions.com",
-  tagline: "Custom software, AI, and automation for growing teams",
-  description:
-    "We design and build custom software, AI systems, and automation that help US companies move faster with less operational drag. Remote-first across the United States.",
-  areaServed: "US",
+  name: company.name,
+  legalName: company.legalName,
+  shortName: company.shortName,
+  email: contact.email,
+  url: company.url,
+  tagline: company.tagline,
+  description: company.description,
+  areaServed: company.areaServed,
+  trustLine: company.trustLine,
+  remoteFirst: company.remoteFirst,
+  copyrightName: company.copyrightName,
 } as const;
 
 export type Business = typeof business;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
-import { business } from "@/data/business";
+import { contact } from "@/data/contact";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -20,10 +20,10 @@ export default function ContactPage() {
           <span>Contact</span>
         </nav>
         <p className="eyebrow">Contact</p>
-        <h1 className="h1">Get in touch</h1>
+        <h1 className="h1">Start a project</h1>
         <p className="lead">
-          Tell us about your project. Email-only contact—no phone field—and a form that
-          routes to {business.email}.
+          Tell us about your project. Email-only contact, no phone field, and a form that
+          routes to {contact.email}.
         </p>
         <ContactForm />
       </div>

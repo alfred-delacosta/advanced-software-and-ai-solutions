@@ -15,8 +15,9 @@ export const products: Product[] = [
     title: "BriefSeal",
     category: "Secure file sharing",
     summary:
-      "Browser-sealed file share for businesses that handle personal information: expiring password-gated links, wipe from the dashboard, no email attachments left sitting forever.",
+      "A safe way to send documents to clients, and get documents back.",
     statusLabel: "Live product",
+    // No outbound to getbriefseal.com until DNS is live.
     thumbSrc: "/products/briefseal-portfolio.svg",
     thumbAlt: "BriefSeal secure file share",
   },
@@ -25,7 +26,7 @@ export const products: Product[] = [
     title: "EmailArchiver",
     category: "Email to PDF",
     summary:
-      "Upload .eml or .mbox files and export visual PDFs that match how the email looks, built for archiving and handoff without connecting a live inbox.",
+      "Upload .eml or .mbox and export clean PDFs for archiving and handoff.",
     statusLabel: "Live product",
     thumbSrc: "/products/emailarchiver-portfolio.svg",
     thumbAlt: "EmailArchiver email to PDF",

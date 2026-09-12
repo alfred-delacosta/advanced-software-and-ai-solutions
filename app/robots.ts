@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { business } from "@/data/business";
+import { company } from "@/data/company";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${business.url}/sitemap.xml`,
+    sitemap: `${company.url}/sitemap.xml`,
   };
 }

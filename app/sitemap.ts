@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { business } from "@/data/business";
+import { company } from "@/data/company";
 import { services } from "@/data/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = business.url;
+  const base = company.url;
   const staticRoutes = ["", "/services", "/products", "/about", "/portfolio", "/contact"].map(
     (path) => ({
       url: `${base}${path}`,

@@ -38,7 +38,7 @@ export default function PortfolioPage() {
             Tell us what you are trying to improve. We will help you scope a realistic first release.
           </p>
           <Link href="/contact" className="btn btn-primary">
-            Get in touch
+            Start a project
           </Link>
         </div>
       </div>

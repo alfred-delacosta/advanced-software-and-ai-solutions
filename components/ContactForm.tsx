@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { business } from "@/data/business";
+import { contact } from "@/data/contact";
 import { services } from "@/data/services";
 import styles from "./ContactForm.module.css";
 
@@ -58,7 +58,7 @@ export default function ContactForm() {
             <p className="muted">
               Thanks for reaching out. We will reply by email soon. If your note is
               time-sensitive, you can also write us directly at{" "}
-              <a href={`mailto:${business.email}`}>{business.email}</a>.
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>.
             </p>
             <button
               type="button"
@@ -114,7 +114,7 @@ export default function ContactForm() {
           <h2 className="h3">Prefer email?</h2>
           <p className="muted">
             You can reach us anytime at{" "}
-            <a href={`mailto:${business.email}`}>{business.email}</a>.
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>.
           </p>
           <p className="muted" style={{ marginBottom: 0 }}>
             We are remote-first across the United States and typically respond within
