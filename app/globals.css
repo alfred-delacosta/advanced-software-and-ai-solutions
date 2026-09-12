@@ -20,6 +20,7 @@
   --line-dark: #1c2738;
 
   --accent: #0b6dff;
+  --gold: #c9922e;
   --accent-hover: #0958d4;
   --accent-muted: rgba(11, 109, 255, 0.12);
   --accent-soft: #2563eb;
@@ -368,6 +369,12 @@ textarea {
 @media (max-width: 639px) {
   :root {
     --nav-h: 64px;
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --nav-h: 80px;
   }
 }
 

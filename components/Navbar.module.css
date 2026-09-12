@@ -19,47 +19,28 @@
 .brand {
   display: inline-flex;
   align-items: center;
+  gap: 0.7rem;
   min-width: 0;
   flex-shrink: 1;
-  line-height: 0;
+  /* clear-space: keep mark from crowding the wordmark / edge */
+  padding-block: 0.15rem;
 }
 
-.lockup {
-  height: 28px;
-  width: auto;
-}
-
-.lockupLight {
+.mark {
   display: block;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
 }
 
-.lockupDark {
-  display: none;
-}
-
-:global(:root[data-theme="dark"]) .lockupLight {
-  display: none;
-}
-
-:global(:root[data-theme="dark"]) .lockupDark {
-  display: block;
-}
-
-:global(:root[data-theme="light"]) .lockupLight {
-  display: block;
-}
-
-:global(:root[data-theme="light"]) .lockupDark {
-  display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme="light"])) .lockupLight {
-    display: none;
-  }
-  :global(:root:not([data-theme="light"])) .lockupDark {
-    display: block;
-  }
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 1.05rem;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .desktopNav {
@@ -190,9 +171,25 @@
   font-size: 0.875rem;
 }
 
+@media (min-width: 640px) {
+  .mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .wordmark {
+    font-size: 1.15rem;
+  }
+}
+
 @media (min-width: 960px) {
-  .lockup {
-    height: 30px;
+  .mark {
+    width: 48px;
+    height: 48px;
+  }
+
+  .wordmark {
+    font-size: 1.25rem;
   }
 
   .desktopNav {

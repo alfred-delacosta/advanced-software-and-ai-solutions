@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { company } from "@/data/company";
 import { contact } from "@/data/contact";
 import ThemeToggle from "./ThemeToggle";
 import styles from "./Navbar.module.css";
@@ -30,24 +31,19 @@ export default function Navbar() {
         <Link
           href="/"
           className={styles.brand}
-          aria-label="Advanced Software and AI Solutions"
-          title="Advanced Software and AI Solutions"
+          aria-label={company.name}
+          title={company.name}
           onClick={() => setOpen(false)}
         >
           <img
-            src="/brand/lockup-asais-light.svg"
+            src="/brand/mark.svg"
             alt=""
-            className={`${styles.lockup} ${styles.lockupLight}`}
-            width={148}
-            height={32}
+            className={styles.mark}
+            width={40}
+            height={40}
+            decoding="async"
           />
-          <img
-            src="/brand/lockup-asais-dark.svg"
-            alt=""
-            className={`${styles.lockup} ${styles.lockupDark}`}
-            width={148}
-            height={32}
-          />
+          <span className={styles.wordmark}>{company.shortName}</span>
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Primary">
