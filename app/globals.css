@@ -298,6 +298,63 @@ textarea {
   margin-bottom: 0;
 }
 
+.prose h2 {
+  color: var(--text);
+  margin: 2rem 0 0.85rem;
+}
+
+.prose h3 {
+  color: var(--text);
+  margin: 1.5rem 0 0.65rem;
+}
+
+.prose ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.prose li {
+  color: var(--text-muted);
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.prose .table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1rem;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--border);
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  color: var(--text);
+  background: var(--panel);
+  font-weight: 600;
+}
+
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
