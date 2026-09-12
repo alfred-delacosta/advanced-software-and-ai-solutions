@@ -38,12 +38,20 @@ export default function Navbar() {
           <img
             src="/brand/mark.svg"
             alt=""
-            className={styles.mark}
+            className={`${styles.mark} ${styles.markLight}`}
             width={40}
             height={40}
             decoding="async"
           />
-          <span className={styles.wordmark}>{company.shortName}</span>
+          <img
+            src="/brand/mark-on-dark.svg"
+            alt=""
+            className={`${styles.mark} ${styles.markDark}`}
+            width={40}
+            height={40}
+            decoding="async"
+          />
+          <span className={styles.wordmark}>ASAIS</span>
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Primary">

@@ -33,11 +33,45 @@
   flex-shrink: 0;
 }
 
+.markLight {
+  display: block;
+}
+
+.markDark {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .markLight {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .markDark {
+  display: block;
+}
+
+:global(:root[data-theme="light"]) .markLight {
+  display: block;
+}
+
+:global(:root[data-theme="light"]) .markDark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"])) .markLight {
+    display: none;
+  }
+  :global(:root:not([data-theme="light"])) .markDark {
+    display: block;
+  }
+}
+
 .wordmark {
   font-family: var(--font-display);
   font-weight: 650;
   font-size: 1.05rem;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
   color: var(--text);
   line-height: 1;
   white-space: nowrap;

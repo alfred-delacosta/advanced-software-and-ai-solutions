@@ -19,7 +19,9 @@
 .brand {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  max-width: 16rem;
 }
 
 .blurb {
@@ -85,4 +87,37 @@
   width: 32px;
   height: 32px;
   flex-shrink: 0;
+}
+
+.brandMarkLight {
+  display: block;
+}
+
+.brandMarkDark {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .brandMarkLight {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .brandMarkDark {
+  display: block;
+}
+
+:global(:root[data-theme="light"]) .brandMarkLight {
+  display: block;
+}
+
+:global(:root[data-theme="light"]) .brandMarkDark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"])) .brandMarkLight {
+    display: none;
+  }
+  :global(:root:not([data-theme="light"])) .brandMarkDark {
+    display: block;
+  }
 }
