@@ -34,7 +34,7 @@ export default function Footer() {
           <p className={styles.trust}>{company.trustLine}</p>
         </div>
         <div>
-          <p className={styles.heading}>Company</p>
+          <h2 className={styles.heading}>Company</h2>
           <div className={styles.links}>
             <Link href="/about">About</Link>
             <Link href="/products">Products</Link>
@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <p className={styles.heading}>Services</p>
+          <h2 className={styles.heading}>Services</h2>
           <div className={styles.links}>
             {services.map((s) => (
               <Link key={s.slug} href={s.href}>
