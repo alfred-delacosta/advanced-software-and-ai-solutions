@@ -263,8 +263,8 @@ export default function PrivacyPage() {
                     <strong>Formspree</strong>
                   </td>
                   <td>
-                    Processes contact-form submissions when that optional
-                    integration is enabled at build time
+                    Processes contact or waitlist form submissions when that
+                    optional integration is enabled at build time
                   </td>
                 </tr>
                 <tr>
