@@ -15,7 +15,7 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
       <div className={styles.body}>
         <span className={styles.tag}>{product.category}</span>
-        <h3 className={`h3 ${styles.title}`}>{product.title}</h3>
+        <h3 className={styles.productTitle}>{product.title}</h3>
         <p className={styles.outcome}>{product.summary}</p>
         {product.href ? (
           <p className={styles.status}>
