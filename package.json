@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "echo 'Static export site: serve the out/ folder (e.g. npx serve out). next start is not used on Hostinger Website.' && exit 1",
+    "lint": "next lint",
+    "export": "next build"
   },
   "dependencies": {
     "next": "^15.5.2",

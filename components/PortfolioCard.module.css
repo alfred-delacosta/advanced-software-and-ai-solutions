@@ -91,6 +91,23 @@
   margin: 0;
 }
 
-.live {
+.product {
   /* product cards */
+}
+
+/* Home product names: Design standout scale, scoped (global .h3 untouched). */
+.product .title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text);
+  margin: 0;
+}
+
+.waitlistNote {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
 }

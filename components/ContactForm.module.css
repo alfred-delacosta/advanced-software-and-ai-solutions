@@ -105,3 +105,17 @@
 .aside a:hover {
   color: var(--accent-hover);
 }
+
+.privacyNote {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

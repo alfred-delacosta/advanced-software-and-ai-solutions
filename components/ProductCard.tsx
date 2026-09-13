@@ -1,9 +1,10 @@
 import type { Product } from "@/data/products";
+import WaitlistForm from "./WaitlistForm";
 import styles from "./PortfolioCard.module.css";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <article className={`${styles.card} ${styles.live}`}>
+    <article className={`${styles.card} ${styles.product}`}>
       <div className={styles.thumb} data-product={product.id}>
         <img
           src={product.thumbSrc}
@@ -14,17 +15,17 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
       <div className={styles.body}>
         <span className={styles.tag}>{product.category}</span>
-        <h3 className="h3">{product.title}</h3>
+        <h3 className={`h3 ${styles.title}`}>{product.title}</h3>
         <p className={styles.outcome}>{product.summary}</p>
-        <p className={styles.status}>
-          {product.href ? (
+        {product.href ? (
+          <p className={styles.status}>
             <a href={product.href} target="_blank" rel="noopener noreferrer">
               View product
             </a>
-          ) : (
-            product.statusLabel
-          )}
-        </p>
+          </p>
+        ) : (
+          <WaitlistForm product={product} />
+        )}
       </div>
     </article>
   );

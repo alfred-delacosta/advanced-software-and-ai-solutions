@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useId, useRef, useState } from "react";
 import { contact } from "@/data/contact";
 import { services } from "@/data/services";
+import { isMailApiConfigured, submitContact } from "@/lib/mailApi";
 import styles from "./ContactForm.module.css";
 
 const serviceOptions = [
@@ -23,12 +25,42 @@ function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function buildMailto(payload: {
+  name: string;
+  email: string;
+  company: string;
+  service: string;
+  message: string;
+}) {
+  const subject = `Website inquiry from ${payload.name}`;
+  const body = [
+    `Name: ${payload.name}`,
+    `Email: ${payload.email}`,
+    `Company: ${payload.company || "(not provided)"}`,
+    `Service: ${payload.service}`,
+    "",
+    payload.message,
+  ].join("\n");
+  return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+const formspreeEndpoint =
+  typeof process !== "undefined"
+    ? process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT?.trim() || ""
+    : "";
+
 export default function ContactForm() {
   const formId = useId();
   const summaryRef = useRef<HTMLParagraphElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [sentVia, setSentVia] = useState<"mail-api" | "formspree" | "mailto" | null>(
+    null,
+  );
+
+  const mailApi = isMailApiConfigured();
+  const useFormspree = !mailApi && Boolean(formspreeEndpoint);
 
   function validate(payload: {
     name: string;
@@ -59,6 +91,7 @@ export default function ContactForm() {
       company: String(data.get("company") || ""),
       service: String(data.get("service") || ""),
       message: String(data.get("message") || ""),
+      website: String(data.get("website") || ""),
     };
 
     const nextErrors = validate(payload);
@@ -72,38 +105,113 @@ export default function ContactForm() {
 
     setStatus("submitting");
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+    if (mailApi) {
+      const result = await submitContact({
+        name: payload.name.trim(),
+        email: payload.email.trim(),
+        company: payload.company.trim(),
+        service: payload.service,
+        message: payload.message.trim(),
+        website: payload.website,
       });
-      const json = (await res.json()) as { ok?: boolean; error?: string };
-      if (!res.ok || !json.ok) {
-        throw new Error(json.error || "Something went wrong. Please email us directly.");
+      if (!result.ok) {
+        setStatus("error");
+        setError(result.error);
+        queueMicrotask(() => summaryRef.current?.focus());
+        return;
       }
+      setSentVia("mail-api");
       setStatus("success");
       setFieldErrors({});
       form.reset();
-    } catch (err) {
-      setStatus("error");
-      setError(err instanceof Error ? err.message : "Unable to send right now.");
-      queueMicrotask(() => summaryRef.current?.focus());
+      return;
     }
+
+    if (useFormspree) {
+      try {
+        const res = await fetch(formspreeEndpoint, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: payload.name.trim(),
+            email: payload.email.trim(),
+            company: payload.company.trim(),
+            service: payload.service,
+            message: payload.message.trim(),
+            _subject: `Website inquiry from ${payload.name.trim()}`,
+          }),
+        });
+        if (!res.ok) {
+          throw new Error("Provider error. Please email us directly.");
+        }
+        setSentVia("formspree");
+        setStatus("success");
+        setFieldErrors({});
+        form.reset();
+        return;
+      } catch (err) {
+        setStatus("error");
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Unable to send right now. Please email us directly.",
+        );
+        queueMicrotask(() => summaryRef.current?.focus());
+        return;
+      }
+    }
+
+    // Last-resort fallback when mail API is not configured.
+    const mailto = buildMailto({
+      name: payload.name.trim(),
+      email: payload.email.trim(),
+      company: payload.company.trim(),
+      service: payload.service,
+      message: payload.message.trim(),
+    });
+    window.location.href = mailto;
+    setSentVia("mailto");
+    setStatus("success");
+    setFieldErrors({});
   }
 
-  const summaryId = `${formId}-error-summary`;
+  const submitLabel = mailApi
+    ? status === "submitting"
+      ? "Sending…"
+      : "Send message"
+    : useFormspree
+      ? status === "submitting"
+        ? "Sending…"
+        : "Send message"
+      : status === "submitting"
+        ? "Sending…"
+        : "Open email draft";
 
   return (
     <div className={styles.layout}>
       <div>
         {status === "success" ? (
           <div className={styles.success} role="status" aria-live="polite">
-            <h2 className="h3">Message received</h2>
+            <h2 className="h3">
+              {sentVia === "mailto" ? "Email draft ready" : "Message received"}
+            </h2>
             <p className="muted">
-              Thanks for reaching out. We will reply by email soon. If your note is
-              time-sensitive, you can also write us directly at{" "}
-              <a href={`mailto:${contact.email}`}>{contact.email}</a>.
+              {sentVia === "mailto" ? (
+                <>
+                  Your email app should open with a pre-filled message to{" "}
+                  <a href={`mailto:${contact.email}`}>{contact.email}</a>. Send
+                  that draft to reach us. If nothing opened, email us directly.
+                </>
+              ) : (
+                <>
+                  Thanks for reaching out. We will reply by email soon. If your
+                  note is time-sensitive, you can also write us directly at{" "}
+                  <a href={`mailto:${contact.email}`}>{contact.email}</a>.
+                </>
+              )}
             </p>
             <button
               type="button"
@@ -112,6 +220,7 @@ export default function ContactForm() {
                 setStatus("idle");
                 setError(null);
                 setFieldErrors({});
+                setSentVia(null);
               }}
             >
               Send another message
@@ -122,7 +231,7 @@ export default function ContactForm() {
             {error ? (
               <p
                 ref={summaryRef}
-                id={summaryId}
+                id={`${formId}-error-summary`}
                 className={styles.errorSummary}
                 role="alert"
                 tabIndex={-1}
@@ -224,12 +333,46 @@ export default function ContactForm() {
                 </p>
               ) : null}
             </div>
+            {/* Honeypot for mail API */}
+            <input
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              className={styles.hp}
+              aria-hidden="true"
+            />
+            <p className={`muted ${styles.privacyNote}`}>
+              We use your message only to reply about your inquiry, not for
+              unrelated marketing. See our{" "}
+              <Link href="/privacy/">Privacy Policy</Link>. Prefer email?{" "}
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              {mailApi ? (
+                <>
+                  {" "}
+                  Your submission is sent through our mail service (Resend) so we
+                  can receive and reply by email.
+                </>
+              ) : useFormspree ? (
+                <>
+                  {" "}
+                  If Formspree is enabled, Formspree processes the submission to
+                  deliver it to ASAIS.
+                </>
+              ) : (
+                <>
+                  {" "}
+                  Submit opens your email app with a draft to us (mailto
+                  fallback). No server post until the mail API URL is configured.
+                </>
+              )}
+            </p>
             <button
               type="submit"
               className="btn btn-primary"
               disabled={status === "submitting"}
             >
-              {status === "submitting" ? "Sending…" : "Send message"}
+              {submitLabel}
             </button>
           </form>
         )}
@@ -243,8 +386,11 @@ export default function ContactForm() {
             <a href={`mailto:${contact.email}`}>{contact.email}</a>.
           </p>
           <p className="muted" style={{ marginBottom: 0 }}>
-            We are remote-first across the United States and typically respond within
-            one business day.
+            We are remote-first across the United States and typically respond
+            within one business day. The marketing Site is static-hosted;
+            {mailApi
+              ? " forms POST to our Hostinger mail API (Resend) and wait for success before confirming."
+              : " forms use mailto fallback until NEXT_PUBLIC_MAIL_API_URL is set at build time."}
           </p>
         </article>
         <article className="card">

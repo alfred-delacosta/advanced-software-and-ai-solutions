@@ -39,7 +39,7 @@
 
 .heading {
   font-family: var(--font-mono);
-  font-size: 0.8125rem; /* ~13px — 508 footer heading floor */
+  font-size: 0.8125rem; /* ~13px; 508 footer heading floor */
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -121,4 +121,15 @@
   :global(:root:not([data-theme="light"])) .brandMarkDark {
     display: block;
   }
+}
+
+.bottomLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+
+.bottomLinks a {
+  color: var(--text-muted);
 }

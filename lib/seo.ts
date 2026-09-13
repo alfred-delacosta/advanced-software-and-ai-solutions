@@ -3,8 +3,9 @@ import { company } from "@/data/company";
 
 export function pageCanonical(path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (normalized === "/") return company.url;
-  return `${company.url}${normalized.replace(/\/$/, "")}`;
+  if (normalized === "/") return `${company.url}/`;
+  const trimmed = normalized.replace(/\/$/, "");
+  return `${company.url}${trimmed}/`;
 }
 
 export function buildMetadata({
