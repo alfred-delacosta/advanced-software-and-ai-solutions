@@ -95,6 +95,17 @@
   /* product cards */
 }
 
+/* Home product names: larger / heavier than generic .h3; still under section h2. */
+.productTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
 .waitlistNote {
   margin: 0.35rem 0 0;
   font-size: 0.8rem;
