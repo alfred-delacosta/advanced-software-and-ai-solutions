@@ -22,7 +22,7 @@ Open http://localhost:3000
 
 Copy `.env.example` to `.env.local` for local builds:
 
-- `NEXT_PUBLIC_MAIL_API_URL` - public base URL of the Hostinger Node mail API (Resend). When set, contact and waitlist forms POST JSON to `/api/contact` and `/api/waitlist` and show success only after HTTP 200.
+- `NEXT_PUBLIC_MAIL_API_URL` - public base URL of the Hostinger Node mail API (Resend). Production value: `https://asaasapps.com` (no trailing slash). When set, contact and waitlist forms POST JSON to `{base}/api/contact` and `{base}/api/waitlist` and show success only after HTTP 200.
 - `NEXT_PUBLIC_FORMSPREE_ENDPOINT` - optional legacy fallback if the mail API URL is unset.
 - Mailto remains a last-resort fallback when neither is configured.
 
@@ -42,8 +42,9 @@ There is no `next start` for production on Hostinger Website: upload the `out/` 
 1. `npm ci && npm run build`
 2. Upload everything inside `out/` to Hostinger Website / public_html (File Manager or Git deploy that publishes static files)
 3. Point `advancedsoftwareandaisolutions.com` at the Hostinger site
-4. Optional: set `NEXT_PUBLIC_FORMSPREE_ENDPOINT` in the build environment, then rebuild, if you want hosted form posts instead of mailto
-5. No Node.js / application hosting slot required
+4. Set `NEXT_PUBLIC_MAIL_API_URL=https://asaasapps.com` in the build environment (already in `.env.example`), then rebuild so contact and waitlist forms POST to that origin
+5. Optional: set `NEXT_PUBLIC_FORMSPREE_ENDPOINT` only if you need the legacy Formspree fallback when the mail API URL is unset
+6. No Node.js / application hosting slot required for the static marketing site (mail API runs separately on Hostinger Node)
 
 ### Deploy (any static host)
 
@@ -54,4 +55,4 @@ Same `out/` artifact works on Netlify, Cloudflare Pages, S3+CDN, etc. Do **not**
 - Email only: contact@advancedsoftwareandaisolutions.com
 - No phone numbers
 - Remote-first across the United States (no city/local address)
-- Product waitlists (BriefSeal, EmailArchiver) use mailto interest notes until launch
+- Product waitlists (BriefSeal, EmailArchiver) POST to the mail API when `NEXT_PUBLIC_MAIL_API_URL` is set; otherwise mailto interest notes
