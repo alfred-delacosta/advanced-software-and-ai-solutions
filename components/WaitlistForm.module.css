@@ -44,10 +44,22 @@
   padding: 0.45rem 0.85rem;
   font-size: 0.875rem;
   white-space: nowrap;
+  background-color: var(--accent);
+  color: var(--primary-fg);
 }
 
-/* Waitlist mailto CTA: same primary affordance as submit (white on accent). */
-.cta {
+.submit:hover,
+.submit:focus-visible {
+  background-color: var(--accent-fill-hover);
+  color: var(--primary-fg);
+}
+
+/* Waitlist mailto CTA: white on accent; never inherit muted/link colors. */
+.cta,
+.cta:link,
+.cta:visited,
+.cta:hover,
+.cta:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -57,10 +69,13 @@
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
+  background-color: var(--accent);
   color: var(--primary-fg);
 }
 
-.cta:hover {
+.cta:hover,
+.cta:focus-visible {
+  background-color: var(--accent-fill-hover);
   color: var(--primary-fg);
   text-decoration: none;
 }

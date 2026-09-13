@@ -237,12 +237,31 @@ textarea {
 }
 
 .btn-primary {
-  background: var(--accent);
+  background-color: var(--accent);
   color: var(--primary-fg);
 }
 
-.btn-primary:hover {
-  background: var(--accent-fill-hover);
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--accent-fill-hover);
+  color: var(--primary-fg);
+}
+
+/* Anchor primary buttons: beat link/UA color so label stays white (waitlist CTAs). */
+a.btn.btn-primary,
+a.btn.btn-primary:link,
+a.btn.btn-primary:visited,
+a.btn.btn-primary:hover,
+a.btn.btn-primary:focus-visible {
+  color: var(--primary-fg);
+  background-color: var(--accent);
+  text-decoration: none;
+}
+
+a.btn.btn-primary:hover,
+a.btn.btn-primary:focus-visible {
+  background-color: var(--accent-fill-hover);
+  color: var(--primary-fg);
 }
 
 .btn-secondary {
