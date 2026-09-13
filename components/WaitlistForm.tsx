@@ -73,11 +73,14 @@ export default function WaitlistForm({ product }: { product: Product }) {
       <div className={styles.wrap}>
         <p className={styles.statusLine}>
           <span className={styles.badge}>{product.statusLabel}</span>
-          {" · "}
-          <a href={mailtoHref} aria-describedby={noteId}>
-            {product.ctaLabel}
-          </a>
         </p>
+        <a
+          href={mailtoHref}
+          className={`btn btn-primary ${styles.cta}`}
+          aria-describedby={noteId}
+        >
+          {product.ctaLabel}
+        </a>
         <p id={noteId} className={`muted ${styles.note}`}>
           {product.microcopy} Opens your email app with a draft to ASAIS. We will
           email you when early access for {product.title} opens. We will not add
