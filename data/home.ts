@@ -6,8 +6,8 @@ export const home = {
   },
   hero: {
     eyebrow: "100% U.S. based team",
-    h1: "Custom software and AI for small businesses, built by a 100% U.S. team",
-    lead: "Advanced Software and AI Solutions LLC designs custom software, implements AI with practical guidance, and helps small businesses optimize the workflows that slow them down. Every engagement is staffed in the United States. We never offshore your work.",
+    h1: "Custom software and AI, built in the U.S.",
+    lead: "Software, practical AI, and workflow systems for small businesses. Staffed entirely in the United States. We never offshore your work.",
     primaryCta: "Start a project",
     primaryHref: "/contact/",
     secondaryCta: "See services",

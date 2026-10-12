@@ -17,7 +17,6 @@ export default function TermsPage() {
           <span>/</span>
           <span>Terms of Use</span>
         </nav>
-        <p className="eyebrow">Legal</p>
         <h1 className="h1">Terms of Use</h1>
         <p className="lead">
           <strong>Advanced Software and AI Solutions LLC</strong> (“ASAIS,” “we,”

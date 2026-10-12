@@ -379,7 +379,7 @@ export default function ContactForm() {
       </div>
 
       <aside className={styles.aside}>
-        <article className="card">
+        <article>
           <h2 className="h3">Prefer email?</h2>
           <p className="muted">
             You can reach us anytime at{" "}
@@ -393,7 +393,7 @@ export default function ContactForm() {
               : " forms use mailto fallback until NEXT_PUBLIC_MAIL_API_URL is set at build time."}
           </p>
         </article>
-        <article className="card">
+        <article>
           <h2 className="h3">What to include</h2>
           <ul className="list-check">
             <li>The problem or opportunity you are exploring</li>

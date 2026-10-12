@@ -2,6 +2,7 @@ import Link from "next/link";
 import { business } from "@/data/business";
 import { company } from "@/data/company";
 import { buildMetadata } from "@/lib/seo";
+import styles from "./page.module.css";
 
 export const metadata = buildMetadata({
   title: "About Our 100% U.S. Based Team",
@@ -42,7 +43,6 @@ export default function AboutPage() {
           <span>/</span>
           <span>About</span>
         </nav>
-        <p className="eyebrow">About</p>
         <h1 className="h1">A 100% U.S. based partner for software and AI</h1>
         <p className="lead">
           {business.name} helps small businesses and growing U.S. companies
@@ -72,11 +72,11 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="mt-2-5">
+        <div className="mt-3">
           <h2 className="h2">Values</h2>
-          <div className="grid-2 mt-1">
+          <div className={styles.values}>
             {values.map((v) => (
-              <article key={v.title} className="card">
+              <article key={v.title} className={styles.value}>
                 <h3 className="h3">{v.title}</h3>
                 <p className="muted mt-0 mb-0">{v.detail}</p>
               </article>
@@ -84,16 +84,16 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="cta-band mt-3">
+        <div className="cta-band">
           <h2 className="h2">Want to work together?</h2>
           <p className="lead">
             Email is the best starting point. Share a bit of context and we will follow up.
           </p>
-          <div className="btn-row justify-center">
+          <div className="btn-row">
             <Link href="/contact" className="btn btn-primary">
               Start a project
             </Link>
-            <a href={`mailto:${business.email}`} className="btn btn-secondary">
+            <a href={`mailto:${business.email}`} className="text-link">
               {business.email}
             </a>
           </div>

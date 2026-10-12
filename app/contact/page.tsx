@@ -19,7 +19,6 @@ export default function ContactPage() {
           <span>/</span>
           <span>Contact</span>
         </nav>
-        <p className="eyebrow">Contact</p>
         <h1 className="h1">Start a project</h1>
         <p className="lead">
           Tell us about your project. Email-only contact, no phone field, and a form that

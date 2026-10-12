@@ -19,18 +19,17 @@ export default function ServicesPage() {
           <span>/</span>
           <span>Services</span>
         </nav>
-        <p className="eyebrow">Services</p>
         <h1 className="h1">Software, AI, and automation services</h1>
         <p className="lead">
           Choose a focused engagement, or combine them. Every engagement starts with
           discovery so we solve the right problem before we scale the solution.
         </p>
-        <div className="grid-2" style={{ marginTop: "1.5rem" }}>
+        <div className="mt-3">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
         </div>
-        <div className="cta-band" style={{ marginTop: "3rem" }}>
+        <div className="cta-band">
           <h2 className="h2">Not sure where to start?</h2>
           <p className="lead">
             Send a short note about your goals. We will recommend a practical path forward.

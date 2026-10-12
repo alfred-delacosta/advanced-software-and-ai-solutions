@@ -17,7 +17,6 @@ export default function PrivacyPage() {
           <span>/</span>
           <span>Privacy Policy</span>
         </nav>
-        <p className="eyebrow">Legal</p>
         <h1 className="h1">Privacy Policy</h1>
         <p className="lead">
           <strong>Advanced Software and AI Solutions LLC</strong> (“ASAIS,” “we,”

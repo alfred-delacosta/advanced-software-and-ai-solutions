@@ -2,6 +2,7 @@
   display: grid;
   gap: 0.65rem;
   margin-top: 0.25rem;
+  container-type: inline-size;
 }
 
 .statusLine {
@@ -23,9 +24,9 @@
   gap: 0.5rem;
 }
 
-@media (min-width: 640px) {
+@container (min-width: 28rem) {
   .row {
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
     align-items: center;
   }
 }
@@ -40,8 +41,8 @@
 }
 
 .submit {
-  min-height: 2.35rem;
-  padding: 0.45rem 0.85rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.95rem;
   font-size: 0.875rem;
   white-space: nowrap;
   background-color: var(--accent);

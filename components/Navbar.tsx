@@ -72,7 +72,7 @@ export default function Navbar() {
             <ThemeToggle />
           </div>
           <div className={styles.ctaWrap}>
-            <Link href="/contact" className={`btn btn-primary ${styles.ctaBtn}`}>
+            <Link href="/contact" className={styles.navCta}>
               Start a project
             </Link>
           </div>

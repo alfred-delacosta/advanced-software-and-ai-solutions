@@ -1,0 +1,52 @@
+.facts {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.facts h2 {
+  margin-bottom: 1rem;
+}
+
+.process {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.index {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.related {
+  display: grid;
+  margin-top: 1.5rem;
+}
+
+.related a {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  color: inherit;
+}
+
+.related a:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 800px) {
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
+  }
+
+  .process {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 3rem;
+  }
+}

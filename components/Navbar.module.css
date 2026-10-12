@@ -3,8 +3,7 @@
   top: 0;
   z-index: 50;
   height: var(--nav-h);
-  backdrop-filter: blur(12px);
-  background: var(--nav-bg);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
@@ -111,8 +110,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--panel);
@@ -199,10 +198,19 @@
   display: none;
 }
 
-.ctaBtn {
-  min-height: 2.35rem;
-  padding: 0.45rem 0.85rem;
-  font-size: 0.875rem;
+.navCta {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navCta:hover {
+  color: var(--accent-text);
 }
 
 @media (min-width: 640px) {
@@ -240,12 +248,6 @@
 
   .ctaWrap {
     display: inline-flex;
-  }
-
-  .ctaBtn {
-    min-height: 2.5rem;
-    padding: 0.55rem 1rem;
-    font-size: 0.9rem;
   }
 
   .mobilePanel {

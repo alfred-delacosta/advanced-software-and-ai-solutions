@@ -30,7 +30,6 @@ export default function Footer() {
             />
             <strong className={styles.brand}>{company.name}</strong>
           </Link>
-          <p className={styles.blurb}>{company.description}</p>
           <p className={styles.trust}>{company.trustLine}</p>
         </div>
         <div>
