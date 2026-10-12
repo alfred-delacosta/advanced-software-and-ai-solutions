@@ -4,9 +4,9 @@ import { contact } from "@/data/contact";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Contact",
+  title: "Contact a 100% U.S. Based Software & AI Team",
   description:
-    "Contact Advanced Software and AI Solutions by email or form. Remote-first across the United States.",
+    "Contact Advanced Software and AI Solutions LLC by email or form. A 100% U.S. based team. We never offshore your work.",
   path: "/contact",
 });
 

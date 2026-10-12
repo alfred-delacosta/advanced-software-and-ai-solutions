@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ASAIS">
+  <path d="M32 4 L56 12 V30.5 C56 46 42.5 56.5 32 61 C21.5 56.5 8 46 8 30.5 V12 Z" fill="none" stroke="#0b1220" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="20,50 32,16 32,26 24.8,50" fill="#0b1220"/>
+  <polygon points="32,16 44,50 39.2,50 32,26" fill="#0b1220"/>
+  <polygon points="32.00,30.30 33.50,34.44 37.90,34.58 34.43,37.29 35.64,41.52 32.00,39.05 28.36,41.52 29.57,37.29 26.10,34.58 30.50,34.44" fill="#0b1220"/>
+</svg>

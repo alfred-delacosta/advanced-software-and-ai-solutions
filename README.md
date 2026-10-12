@@ -54,5 +54,5 @@ Same `out/` artifact works on Netlify, Cloudflare Pages, S3+CDN, etc. Do **not**
 
 - Email only: contact@advancedsoftwareandaisolutions.com
 - No phone numbers
-- Remote-first across the United States (no city/local address)
+- 100% U.S. based team (no city/local address)
 - Product waitlists (BriefSeal, EmailArchiver) POST to the mail API when `NEXT_PUBLIC_MAIL_API_URL` is set; otherwise mailto interest notes

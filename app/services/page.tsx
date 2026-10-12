@@ -4,9 +4,9 @@ import { services } from "@/data/services";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Software, AI & Automation Services",
+  title: "U.S. Based Software, AI & Workflow Services",
   description:
-    "Custom software development, AI & machine learning, automation & integrations, and software & AI consulting for growing US teams.",
+    "Custom software, AI implementation, and workflow optimization for small businesses — delivered by a 100% U.S. based team. We never offshore your work.",
   path: "/services",
 });
 

@@ -386,7 +386,7 @@ export default function ContactForm() {
             <a href={`mailto:${contact.email}`}>{contact.email}</a>.
           </p>
           <p className="muted" style={{ marginBottom: 0 }}>
-            We are remote-first across the United States and typically respond
+            We are a 100% U.S. based team and typically respond
             within one business day. The marketing Site is static-hosted;
             {mailApi
               ? " forms POST to our Hostinger mail API (Resend) and wait for success before confirming."

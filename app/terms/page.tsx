@@ -56,7 +56,7 @@ export default function TermsPage() {
               contact@advancedsoftwareandaisolutions.com
             </a>
             <br />
-            Remote-first across the United States
+            100% U.S. based team
           </p>
 
           <h2 className="h2">2. The Site is informational</h2>

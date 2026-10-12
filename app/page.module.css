@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  padding: 5.5rem 0 3.75rem;
+  padding: 4.5rem 0 3.5rem;
   overflow: hidden;
 }
 
@@ -27,10 +27,101 @@
   pointer-events: none;
 }
 
-.hero .container,
-.hero :global(.container) {
+.heroInner {
   position: relative;
   z-index: 1;
+  display: grid;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .hero {
+    padding: 5.5rem 0 4rem;
+  }
+
+  .heroInner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 3rem;
+  }
+}
+
+.heroCopy :global(.h1) {
+  max-width: 22ch;
+}
+
+.heroLead {
+  max-width: 42rem;
+}
+
+.usEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.star {
+  color: #c9922e;
+  font-size: 0.85em;
+  line-height: 1;
+}
+
+.proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.35rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.proof li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.proof li::before {
+  content: "";
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.heroMedia {
+  margin: 0;
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.heroMedia img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.heroBadge {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.85rem;
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  background: rgba(11, 18, 32, 0.88);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .trustStrip {
@@ -73,25 +164,108 @@
   background: var(--accent);
 }
 
-.capability {
-  display: block;
-  transition: border-color 0.15s ease, background 0.15s ease;
+.trio {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-.capability:hover {
-  background: color-mix(in srgb, var(--accent-muted) 55%, var(--panel));
+@media (min-width: 720px) {
+  .trio {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .trio {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.serviceCard :global(.list-check) {
+  flex: 1;
+  margin: 0.35rem 0 1rem;
+}
+
+.usGrid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .usGrid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 3rem;
+  }
+}
+
+.usMedia {
+  margin: 0;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.usMedia img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.usPoints {
+  display: grid;
+  gap: 1.15rem;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .usPoints {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
+}
+
+.howGrid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .howGrid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 3rem;
+  }
+}
+
+.howMedia {
+  margin: 0;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.howMedia img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
 }
 
 .steps {
   display: grid;
   gap: 1rem;
   margin-top: 1.5rem;
-}
-
-@media (min-width: 960px) {
-  .steps {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 .stepNum {
@@ -113,6 +287,30 @@
   border-top: 1px solid var(--border);
 }
 
+.faqList {
+  display: grid;
+  gap: 0;
+  margin: 1.5rem 0 0;
+}
+
+.faqItem {
+  margin: 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.faqItem:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.faqItem :global(.h3) {
+  margin-bottom: 0.45rem;
+}
+
+.faqItem p {
+  max-width: 48rem;
+}
+
 .flushTop {
   padding-top: 0;
 }
@@ -125,4 +323,14 @@
   background: var(--panel);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 639px) {
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .heroCopy :global(.h1) {
+    max-width: none;
+  }
 }

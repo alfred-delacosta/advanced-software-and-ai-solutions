@@ -4,12 +4,12 @@ export const company = {
   shortName: "ASAIS",
   copyrightName: "ASAIS LLC",
   url: "https://advancedsoftwareandaisolutions.com",
-  tagline: "Custom software, AI, and automation for growing teams",
+  tagline: "Custom software, AI, and workflow optimization for small businesses",
   description:
-    "We design and build systems that help US companies move faster with less operational drag. Sparse process. Production software.",
-  remoteFirst: "Remote-first across the United States",
-  trustLine: "An all-American team. We never offshore your work.",
-  trustBits: ["Remote-first US", "Email only"] as const,
+    "A 100% U.S. based team building custom software, implementing AI, and optimizing small-business workflows. We never offshore your work.",
+  remoteFirst: "100% U.S. based team",
+  trustLine: "A 100% U.S. based team. We never offshore your work.",
+  trustBits: ["100% U.S. based", "Never offshored", "Email only"] as const,
   areaServed: "US",
 } as const;
 

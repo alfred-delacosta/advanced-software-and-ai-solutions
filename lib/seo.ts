@@ -24,6 +24,7 @@ export function buildMetadata({
     title,
     description,
     alternates: { canonical: url },
+    robots: { index: true, follow: true },
     openGraph: {
       title: fullTitle ?? `${title} | ${company.name}`,
       description,
@@ -46,5 +47,22 @@ export function buildMetadata({
       description,
       images: ["/og.png"],
     },
+  };
+}
+
+export function faqJsonLd(
+  items: readonly { question: string; answer: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }

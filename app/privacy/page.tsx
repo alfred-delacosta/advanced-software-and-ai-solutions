@@ -80,7 +80,7 @@ export default function PrivacyPage() {
                 </tr>
                 <tr>
                   <th scope="row">How we operate</th>
-                  <td>Remote-first across the United States</td>
+                  <td>100% U.S. based team (no city or street address on the Site)</td>
                 </tr>
                 <tr>
                   <th scope="row">Public contact</th>

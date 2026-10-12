@@ -1,7 +1,9 @@
 import { contact } from "@/data/contact";
 
+export type ProductId = "briefseal" | "emailarchiver";
+
 export type Product = {
-  id: string;
+  id: ProductId;
   title: string;
   category: string;
   summary: string;
