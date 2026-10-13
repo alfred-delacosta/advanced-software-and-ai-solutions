@@ -52,6 +52,12 @@ export const metadata: Metadata = {
         height: 630,
         alt: company.name,
       },
+      {
+        url: "/og-light.png",
+        width: 1200,
+        height: 630,
+        alt: company.name,
+      },
     ],
   },
   twitter: {
@@ -76,8 +82,8 @@ const organizationJsonLd = {
       email: contact.email,
       description: company.description,
       slogan: company.trustLine,
-      logo: `${company.url}/brand/mark-512.png`,
-      image: `${company.url}/brand/mark-512.png`,
+      logo: `${company.url}/brand/tile-dark-512.png`,
+      image: `${company.url}/brand/tile-dark-512.png`,
       areaServed: {
         "@type": "Country",
         name: "United States",
@@ -104,7 +110,7 @@ const organizationJsonLd = {
       "@id": `${company.url}/#business`,
       name: company.legalName,
       url: company.url,
-      image: `${company.url}/brand/mark-512.png`,
+      image: `${company.url}/brand/tile-dark-512.png`,
       email: contact.email,
       description: company.description,
       areaServed: {

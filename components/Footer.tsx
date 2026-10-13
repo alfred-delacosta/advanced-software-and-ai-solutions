@@ -21,7 +21,7 @@ export default function Footer() {
               decoding="async"
             />
             <img
-              src="/brand/mark-on-dark.svg"
+              src="/brand/mark-dark.svg"
               alt=""
               className={`${styles.brandMark} ${styles.brandMarkDark}`}
               width={32}

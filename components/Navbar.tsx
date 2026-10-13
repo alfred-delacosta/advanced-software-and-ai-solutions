@@ -35,23 +35,68 @@ export default function Navbar() {
           title={company.name}
           onClick={() => setOpen(false)}
         >
+          <picture className={`${styles.markPic} ${styles.markLight}`}>
+            <source
+              media="(min-width: 960px)"
+              srcSet="/brand/nav-48-light.png 1x, /brand/nav-48@2x-light.png 2x"
+              width={48}
+              height={48}
+            />
+            <source
+              media="(min-width: 640px)"
+              srcSet="/brand/nav-40-light.png 1x, /brand/nav-40@2x-light.png 2x"
+              width={40}
+              height={40}
+            />
+            <img
+              src="/brand/nav-32-light.png"
+              srcSet="/brand/nav-32-light.png 1x, /brand/nav-32@2x-light.png 2x"
+              alt=""
+              className={styles.mark}
+              width={32}
+              height={32}
+              decoding="async"
+            />
+          </picture>
+          <picture className={`${styles.markPic} ${styles.markDark}`}>
+            <source
+              media="(min-width: 960px)"
+              srcSet="/brand/nav-48-dark.png 1x, /brand/nav-48@2x-dark.png 2x"
+              width={48}
+              height={48}
+            />
+            <source
+              media="(min-width: 640px)"
+              srcSet="/brand/nav-40-dark.png 1x, /brand/nav-40@2x-dark.png 2x"
+              width={40}
+              height={40}
+            />
+            <img
+              src="/brand/nav-32-dark.png"
+              srcSet="/brand/nav-32-dark.png 1x, /brand/nav-32@2x-dark.png 2x"
+              alt=""
+              className={styles.mark}
+              width={32}
+              height={32}
+              decoding="async"
+            />
+          </picture>
           <img
-            src="/brand/mark.svg"
+            src="/brand/wordmark-light.svg"
             alt=""
-            className={`${styles.mark} ${styles.markLight}`}
-            width={40}
-            height={40}
+            className={`${styles.wordmark} ${styles.markLight}`}
+            width={283}
+            height={44}
             decoding="async"
           />
           <img
-            src="/brand/mark-on-dark.svg"
+            src="/brand/wordmark-dark.svg"
             alt=""
-            className={`${styles.mark} ${styles.markDark}`}
-            width={40}
-            height={40}
+            className={`${styles.wordmark} ${styles.markDark}`}
+            width={283}
+            height={44}
             decoding="async"
           />
-          <span className={styles.wordmark}>ASAIS</span>
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Primary">
