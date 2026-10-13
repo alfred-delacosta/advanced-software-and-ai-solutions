@@ -1,19 +1,14 @@
 .card {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: transparent;
+  border: 0;
   overflow: hidden;
 }
 
 .thumb {
-  height: 140px;
-  background:
-    radial-gradient(circle at 30% 30%, var(--accent-muted), transparent 55%),
-    linear-gradient(145deg, var(--panel-2), var(--panel));
-  border-bottom: 1px solid var(--border);
+  aspect-ratio: 16 / 10;
+  background: var(--panel-2);
   overflow: hidden;
 }
 
@@ -25,7 +20,7 @@
 }
 
 .body {
-  padding: 1.15rem;
+  padding: 1.15rem 0 0;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -37,7 +32,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent-text);
+  color: var(--text-muted);
 }
 
 .outcome {
@@ -89,8 +84,25 @@
 
 .listTitle {
   margin: 0;
+  font-size: clamp(1.35rem, 1rem + 0.8vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
-.live {
-  /* product cards */
+.product .title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.1rem + 1.4vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: var(--text);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.waitlistNote {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
 }

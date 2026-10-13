@@ -1,8 +1,8 @@
 .footer {
   border-top: 1px solid var(--border);
   background: var(--panel);
-  margin-top: 4rem;
-  padding: 3rem 0 2rem;
+  margin-top: 0;
+  padding: 4.5rem 0 2.5rem;
 }
 
 .grid {
@@ -24,22 +24,16 @@
   max-width: 16rem;
 }
 
-.blurb {
-  color: var(--text-muted);
-  max-width: 28rem;
-  margin: 0.75rem 0 0;
-}
-
 .trust {
   color: var(--text-muted);
   max-width: 28rem;
-  margin: 0.85rem 0 0;
+  margin: 1rem 0 0;
   font-size: 0.92rem;
 }
 
 .heading {
   font-family: var(--font-mono);
-  font-size: 0.8125rem; /* ~13px — 508 footer heading floor */
+  font-size: 0.8125rem; /* ~13px; 508 footer heading floor */
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -121,4 +115,19 @@
   :global(:root:not([data-theme="light"])) .brandMarkDark {
     display: block;
   }
+}
+
+.bottomLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.bottomLinks a {
+  min-width: 0;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
 }

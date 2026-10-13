@@ -4,9 +4,9 @@ import { contact } from "@/data/contact";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Contact",
+  title: "Contact a 100% U.S. Based Software & AI Team",
   description:
-    "Contact Advanced Software and AI Solutions by email or form. Remote-first across the United States.",
+    "Contact Advanced Software and AI Solutions LLC by email or form. A 100% U.S. based team. We never offshore your work.",
   path: "/contact",
 });
 
@@ -19,7 +19,6 @@ export default function ContactPage() {
           <span>/</span>
           <span>Contact</span>
         </nav>
-        <p className="eyebrow">Contact</p>
         <h1 className="h1">Start a project</h1>
         <p className="lead">
           Tell us about your project. Email-only contact, no phone field, and a form that

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -20,10 +20,16 @@ const jetbrains = JetBrains_Mono({
 
 const themeBootScript = `(function(){try{var k='asais-theme';var m=localStorage.getItem(k);var d=document.documentElement;if(m==='light'||m==='dark'){d.setAttribute('data-theme',m);d.style.colorScheme=m;}else{d.removeAttribute('data-theme');}}catch(e){}})();`;
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(company.url),
   title: {
-    default: `${company.name} | Custom Software, AI & Automation`,
+    default: `${company.name} | 100% U.S. Based Custom Software & AI`,
     template: `%s | ${company.name}`,
   },
   description: company.description,
@@ -52,28 +58,80 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/og.png"],
   },
+  robots: { index: true, follow: true },
+  other: {
+    "geo.region": "US",
+  },
 };
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: company.name,
-  legalName: company.legalName,
-  url: company.url,
-  email: contact.email,
-  description: company.description,
-  logo: `${company.url}/brand/mark-512.png`,
-  areaServed: {
-    "@type": "Country",
-    name: "United States",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: contact.email,
-    contactType: "sales",
-    areaServed: "US",
-    availableLanguage: ["English"],
-  },
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${company.url}/#organization`,
+      name: company.name,
+      legalName: company.legalName,
+      url: company.url,
+      email: contact.email,
+      description: company.description,
+      slogan: company.trustLine,
+      logo: `${company.url}/brand/mark-512.png`,
+      image: `${company.url}/brand/mark-512.png`,
+      areaServed: {
+        "@type": "Country",
+        name: "United States",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "US",
+      },
+      knowsAbout: [
+        "Custom software development",
+        "Artificial intelligence implementation",
+        "Small business workflow optimization",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: contact.email,
+        contactType: "sales",
+        areaServed: "US",
+        availableLanguage: ["English"],
+      },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${company.url}/#business`,
+      name: company.legalName,
+      url: company.url,
+      image: `${company.url}/brand/mark-512.png`,
+      email: contact.email,
+      description: company.description,
+      areaServed: {
+        "@type": "Country",
+        name: "United States",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "US",
+      },
+      serviceType: [
+        "Custom Software Development",
+        "AI Implementation and Guidance",
+        "Small Business Workflow Optimization",
+      ],
+      parentOrganization: { "@id": `${company.url}/#organization` },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${company.url}/#website`,
+      url: company.url,
+      name: company.name,
+      description: company.description,
+      inLanguage: "en-US",
+      publisher: { "@id": `${company.url}/#organization` },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -82,7 +140,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+    <html lang="en-US" className={`${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
       </head>
