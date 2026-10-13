@@ -1,7 +1,8 @@
 .hero {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
   min-height: calc(100dvh - var(--nav-h));
   color: #f4f6f8;
   background: var(--void);
@@ -32,9 +33,12 @@
 .heroContent {
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
   width: 100%;
   padding-top: 4.5rem;
   padding-bottom: 3.5rem;
+  /* width:100% was canceling .container's side inset, so the type sat on the edge. */
+  padding-inline: max(1.5rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
 }
 
 .heroCopy {
@@ -255,6 +259,12 @@ section.how {
   }
 }
 
+@media (min-width: 640px) {
+  .heroContent {
+    padding-inline: max(2.5rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  }
+}
+
 @media (min-width: 960px) {
   .statement {
     padding: 6rem 0;
@@ -262,6 +272,7 @@ section.how {
 
   .heroContent {
     padding-bottom: 4.5rem;
+    padding-inline: max(2.5rem, calc((100% - var(--max)) / 2));
   }
 
   .mission {

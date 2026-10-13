@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -19,6 +19,12 @@ const jetbrains = JetBrains_Mono({
 });
 
 const themeBootScript = `(function(){try{var k='asais-theme';var m=localStorage.getItem(k);var d=document.documentElement;if(m==='light'||m==='dark'){d.setAttribute('data-theme',m);d.style.colorScheme=m;}else{d.removeAttribute('data-theme');}}catch(e){}})();`;
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(company.url),
