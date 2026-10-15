@@ -11,6 +11,8 @@ export type Service = {
   relatedSlugs: string[];
   seoTitle: string;
   seoDescription: string;
+  /** Optional in-copy links: the first occurrence of each phrase in the description becomes a link. */
+  descriptionLinks?: { phrase: string; href: string }[];
 };
 
 export const services: Service[] = [
@@ -61,8 +63,12 @@ Whether you need a customer-facing portal, an operations console, a partner inte
     ],
     relatedSlugs: [
       "ai-machine-learning",
+      "integration-services",
       "automation-integrations",
       "software-ai-consulting",
+    ],
+    descriptionLinks: [
+      { phrase: "a partner integration hub", href: "/services/integration-services/" },
     ],
     seoTitle: "Custom Software Development | Advanced Software and AI Solutions",
     seoDescription:
@@ -127,10 +133,10 @@ You leave with something your team can operate: documented pipelines, guardrails
     title: "Automation & Integrations",
     shortTitle: "Automation",
     summary:
-      "Connect the tools you already use and automate the busywork between them.",
+      "Workflow automation that connects the SaaS tools your team already uses and removes the busywork between them.",
     description: `Most operational drag is not a missing dashboard - it is copy-paste between systems, inconsistent handoffs, and manual reconciliations that only one person understands. Automation and integrations turn those fragile rituals into reliable flows.
 
-We connect CRMs, ERPs, billing platforms, data warehouses, messaging tools, and custom apps through APIs, webhooks, and carefully designed jobs. The goal is fewer human touchpoints on routine work and a single source of truth your team can trust.
+We automate the everyday workflows that run through the SaaS tools your team already uses: CRM updates, intake forms, approvals, notifications, and scheduled reports. The goal is fewer human touchpoints on routine work and a single source of truth your team can trust. For larger system integration services, such as partner and vendor connections, custom API development, or ETL pipelines, see our Integration Services.
 
 Good automation is observable. We design retries, alerting, idempotency, and audit trails so failures are visible and recoverable. We also document ownership: which team owns which flow, what happens when a vendor changes their API, and how to extend the pattern to the next process.
 
@@ -138,8 +144,8 @@ Whether you need a handful of critical syncs or a broader automation program, we
     href: "/services/automation-integrations",
     included: [
       "Process mapping and automation prioritization",
-      "API and webhook integrations",
-      "Scheduled jobs and event-driven workflows",
+      "SaaS-to-SaaS syncs and app connections",
+      "Scheduled jobs and trigger-based workflows",
       "Error handling, retries, and alerting",
       "Data mapping and reconciliation checks",
       "Runbooks for operations teams",
@@ -165,16 +171,55 @@ Whether you need a handful of critical syncs or a broader automation program, we
       "Ops teams juggling multiple SaaS tools by hand",
       "Finance and revenue teams reconciling data across systems",
       "Companies onboarding customers through multi-step checklists",
-      "Engineering teams that need reliable glue without a full platform rewrite",
+      "Teams that need reliable glue between SaaS tools without a full platform rewrite",
     ],
     relatedSlugs: [
+      "integration-services",
       "custom-software-development",
       "ai-machine-learning",
       "software-ai-consulting",
     ],
-    seoTitle: "Automation & Integrations | Advanced Software and AI Solutions",
+    seoTitle: "Workflow Automation Services | Advanced Software and AI Solutions",
     seoDescription:
-      "API integrations, workflow automation, and reliable system syncs for U.S. small businesses. Observable, documented delivery from a 100% U.S. based team.",
+      "Workflow automation and SaaS app syncs for U.S. small businesses. Observable, documented automations from a 100% U.S. based team. Never offshored.",
+    descriptionLinks: [
+      { phrase: "system integration services", href: "/services/integration-services/" },
+    ],
+  },
+  {
+    slug: "integration-services",
+    title: "Integration Services",
+    shortTitle: "Integrations",
+    summary:
+      "System integration services: API design and development, ETL pipelines, webhooks, and middleware.",
+    description: `Advanced Software and AI Solutions (ASAIS) connects the systems your business runs on, inside your company and with your partners. That includes API design and development, ETL pipelines, webhooks, and middleware.`,
+    href: "/services/integration-services",
+    included: [
+      "System integration",
+      "Company-to-company integration",
+      "API design and development",
+      "ETL and data integration",
+      "Webhooks and event-driven integration",
+      "Middleware and iPaaS",
+    ],
+    process: [
+      { step: "Discover", detail: "We learn your systems, your partners, and where data gets stuck." },
+      { step: "Design", detail: "We propose an architecture and API approach, with clear scope and tradeoffs." },
+      { step: "Build", detail: "We develop in small steps you can review, with tests along the way." },
+    ],
+    idealFor: [
+      "Companies exchanging data with partners, vendors, or customers",
+      "Teams that need documented, versioned APIs",
+      "Businesses moving data between systems on a schedule or in real time",
+    ],
+    relatedSlugs: [
+      "automation-integrations",
+      "custom-software-development",
+      "software-ai-consulting",
+    ],
+    seoTitle: "System Integration Services: API and ETL | Advanced Software and AI Solutions",
+    seoDescription:
+      "US-based system integration services: API design and development, ETL pipelines, webhooks, and middleware. Never offshored.",
   },
   {
     slug: "software-ai-consulting",
@@ -184,14 +229,14 @@ Whether you need a handful of critical syncs or a broader automation program, we
       "Independent guidance on architecture, build-vs-buy, and AI readiness before you commit budget.",
     description: `Sometimes the highest-leverage work is a clear recommendation - not another sprint of code. Software and AI consulting gives leadership a grounded view of options, tradeoffs, and sequencing so investment lands on the right problems.
 
-We advise on application architecture, platform selection, technical due diligence, AI opportunity sizing, and delivery operating models. Engagements are structured as focused assessments or ongoing advisory retainers depending on how fast decisions need to move.
+We advise on application architecture, integration architecture, platform selection, technical due diligence, AI opportunity sizing, and delivery operating models. Engagements are structured as focused assessments or ongoing advisory retainers depending on how fast decisions need to move.
 
 You get written findings, prioritized recommendations, and a roadmap your team can execute - whether that execution stays in-house, with us, or with another partner. We stay vendor-neutral on tools and honest when buying a product beats building one.
 
 Because we also build, our advice reflects what it takes to ship and operate systems in production. That practical bias helps avoid slideware architectures that collapse under real constraints. We work as a 100% U.S. based team with American clients and adapt communication cadence to your stakeholders.`,
     href: "/services/software-ai-consulting",
     included: [
-      "Architecture and stack reviews",
+      "Architecture, stack, and integration architecture reviews",
       "Build-vs-buy analysis",
       "AI readiness and opportunity assessment",
       "Delivery process and team structure advice",
@@ -225,6 +270,10 @@ Because we also build, our advice reflects what it takes to ship and operate sys
       "custom-software-development",
       "ai-machine-learning",
       "automation-integrations",
+      "integration-services",
+    ],
+    descriptionLinks: [
+      { phrase: "integration architecture", href: "/services/integration-services/" },
     ],
     seoTitle: "Software & AI Consulting | Advanced Software and AI Solutions",
     seoDescription:

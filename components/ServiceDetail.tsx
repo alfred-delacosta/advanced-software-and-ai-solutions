@@ -5,6 +5,37 @@ import { company } from "@/data/company";
 import { contact } from "@/data/contact";
 import styles from "./ServiceDetail.module.css";
 
+type DescriptionLink = NonNullable<Service["descriptionLinks"]>[number];
+
+/** Turn the first occurrence of each link phrase (across all paragraphs) into a Link. */
+function linkParagraphs(paragraphs: string[], links: DescriptionLink[] = []) {
+  const used = new Set<string>();
+  return paragraphs.map((text) => {
+    const parts: React.ReactNode[] = [];
+    let rest = text;
+    let key = 0;
+    for (;;) {
+      let next: { index: number; link: DescriptionLink } | null = null;
+      for (const link of links) {
+        if (used.has(link.phrase)) continue;
+        const index = rest.indexOf(link.phrase);
+        if (index !== -1 && (!next || index < next.index)) next = { index, link };
+      }
+      if (!next) break;
+      used.add(next.link.phrase);
+      parts.push(rest.slice(0, next.index));
+      parts.push(
+        <Link key={key++} href={next.link.href}>
+          {next.link.phrase}
+        </Link>,
+      );
+      rest = rest.slice(next.index + next.link.phrase.length);
+    }
+    parts.push(rest);
+    return { key: text.slice(0, 32), parts };
+  });
+}
+
 export default function ServiceDetail({ service }: { service: Service }) {
   const related = getRelatedServices(service.slug);
   const paragraphs = service.description
@@ -57,8 +88,8 @@ export default function ServiceDetail({ service }: { service: Service }) {
         </div>
 
         <div className="prose">
-          {paragraphs.map((p) => (
-            <p key={p.slice(0, 32)}>{p}</p>
+          {linkParagraphs(paragraphs, service.descriptionLinks).map((p) => (
+            <p key={p.key}>{p.parts}</p>
           ))}
         </div>
 
