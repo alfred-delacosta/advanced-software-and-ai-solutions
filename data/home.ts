@@ -72,11 +72,11 @@ export const home = {
       {
         title: "Integration services",
         oneLiner:
-          "System integration for the software you run and the partners you trade with: APIs, EDI and B2B data exchange, ETL pipelines, and middleware.",
+          "System integration for the software you run and the partners you work with: APIs, ETL pipelines, webhooks, and middleware.",
         href: "/services/integration-services/",
         points: [
           "API design and development",
-          "EDI, SFTP, and partner API connections",
+          "Partner and vendor connections over APIs or SFTP",
           "ETL pipelines with reconciliation checks",
         ],
       },

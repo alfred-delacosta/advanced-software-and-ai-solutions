@@ -4,7 +4,7 @@
 
 ## Services
 
-- [Integration Services](https://advancedsoftwareandaisolutions.com/services/integration-services/): System integration services for U.S. businesses: API design and development, EDI and B2B data exchange, ETL pipelines, webhooks, and middleware.
+- [Integration Services](https://advancedsoftwareandaisolutions.com/services/integration-services/): System integration services for U.S. businesses: API design and development, ETL pipelines, webhooks, and middleware.
 - [Custom Software Development](https://advancedsoftwareandaisolutions.com/services/custom-software-development/): Custom web apps, APIs, and internal tools for growing U.S. teams.
 - [AI & Machine Learning](https://advancedsoftwareandaisolutions.com/services/ai-machine-learning/): Practical AI implementation: RAG, classification, assistants, and evaluation-driven delivery.
 - [Workflow Automation](https://advancedsoftwareandaisolutions.com/services/automation-integrations/): Workflow automation and SaaS app syncs for small business operations teams.

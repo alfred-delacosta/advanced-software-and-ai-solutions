@@ -136,7 +136,7 @@ You leave with something your team can operate: documented pipelines, guardrails
       "Workflow automation that connects the SaaS tools your team already uses and removes the busywork between them.",
     description: `Most operational drag is not a missing dashboard - it is copy-paste between systems, inconsistent handoffs, and manual reconciliations that only one person understands. Automation and integrations turn those fragile rituals into reliable flows.
 
-We automate the everyday workflows that run through the SaaS tools your team already uses: CRM updates, intake forms, approvals, notifications, and scheduled reports. The goal is fewer human touchpoints on routine work and a single source of truth your team can trust. For larger system integration services, such as partner and B2B connections, EDI, custom API development, or ETL pipelines, see our Integration Services.
+We automate the everyday workflows that run through the SaaS tools your team already uses: CRM updates, intake forms, approvals, notifications, and scheduled reports. The goal is fewer human touchpoints on routine work and a single source of truth your team can trust. For larger system integration services, such as partner and vendor connections, custom API development, or ETL pipelines, see our Integration Services.
 
 Good automation is observable. We design retries, alerting, idempotency, and audit trails so failures are visible and recoverable. We also document ownership: which team owns which flow, what happens when a vendor changes their API, and how to extend the pattern to the next process.
 
@@ -191,12 +191,12 @@ Whether you need a handful of critical syncs or a broader automation program, we
     title: "Integration Services",
     shortTitle: "Integrations",
     summary:
-      "System integration services: API design and development, EDI and B2B data exchange, ETL pipelines, webhooks, and middleware.",
-    description: `Advanced Software and AI Solutions (ASAIS) connects the systems your business runs on, inside your company and with your partners. That includes API design and development, EDI and B2B data exchange, ETL pipelines, webhooks, and middleware.`,
+      "System integration services: API design and development, ETL pipelines, webhooks, and middleware.",
+    description: `Advanced Software and AI Solutions (ASAIS) connects the systems your business runs on, inside your company and with your partners. That includes API design and development, ETL pipelines, webhooks, and middleware.`,
     href: "/services/integration-services",
     included: [
       "System integration",
-      "B2B and EDI integration",
+      "Company-to-company integration",
       "API design and development",
       "ETL and data integration",
       "Webhooks and event-driven integration",
@@ -217,9 +217,9 @@ Whether you need a handful of critical syncs or a broader automation program, we
       "custom-software-development",
       "software-ai-consulting",
     ],
-    seoTitle: "Integration Services: API, EDI and ETL | Advanced Software and AI Solutions",
+    seoTitle: "Integration Services: API and ETL | Advanced Software and AI Solutions",
     seoDescription:
-      "US-based system integration services: API development, EDI and B2B data exchange, ETL pipelines, webhooks, and middleware. Never offshored.",
+      "US-based system integration services: API design and development, ETL pipelines, webhooks, and middleware. Never offshored.",
   },
   {
     slug: "software-ai-consulting",

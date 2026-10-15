@@ -99,7 +99,6 @@ const organizationJsonLd = {
         "Small business workflow optimization",
         "System integration",
         "API design and development",
-        "EDI and B2B integration",
         "ETL and data integration",
       ],
       contactPoint: {

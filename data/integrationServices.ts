@@ -4,16 +4,16 @@
  * (/home/box/plans/asais-integration-services-copy.md), SEO Bot plan
  * (asais-integration-services-seo.md), AEO Bot additions (asais-integration-services-aeo.md).
  *
- * Per Jay (2026-10-14): no Azure or BizTalk offering, no named apps. Founder line approved.
+ * Per Jay (2026-10-14): no Azure, BizTalk, or electronic data interchange offering, no named apps. Founder line approved.
  * No Person schema node: the approved line does not state a name or title.
  */
 
 export const integrationServices = {
   slug: "integration-services",
   path: "/services/integration-services/",
-  seoTitle: "Integration Services: API, EDI and ETL",
+  seoTitle: "Integration Services: API and ETL",
   seoDescription:
-    "US-based system integration services: API development, EDI and B2B data exchange, ETL pipelines, webhooks, and middleware. Never offshored.",
+    "US-based system integration services: API design and development, ETL pipelines, webhooks, and middleware. Never offshored.",
   datePublished: "2026-10-14",
   dateModified: "2026-10-14",
   lastUpdatedLabel: "October 14, 2026",
@@ -31,7 +31,7 @@ export const integrationServices = {
     definition:
       "System integration services connect separate software systems so data moves between them automatically and reliably.",
     intro:
-      "Advanced Software and AI Solutions (ASAIS) connects the systems your business runs on, inside your company and with your partners. That includes API design and development, EDI and B2B data exchange, ETL pipelines, webhooks, and middleware.",
+      "Advanced Software and AI Solutions (ASAIS) connects the systems your business runs on, inside your company and with your partners. That includes API design and development, ETL pipelines, webhooks, and middleware.",
     items: [
       {
         title: "System integration",
@@ -39,9 +39,9 @@ export const integrationServices = {
           "We connect internal tools and SaaS platforms so data moves where it needs to, on time and in the right shape. No more re-keying orders, customers, or invoices from one screen to another.",
       },
       {
-        title: "Company-to-company and B2B integration",
+        title: "Company-to-company integration",
         detail:
-          "We build and maintain connections with your partners, vendors, and customers. Depending on what the other side supports, that might be EDI, secure file exchange over SFTP, or partner APIs. We coordinate directly with their technical team so you don't have to translate.",
+          "We build and maintain connections with your partners, vendors, and customers. Depending on what the other side supports, that might be secure file exchange over SFTP or partner APIs. We coordinate directly with their technical team so you don't have to translate.",
       },
       {
         title: "API design and development",
@@ -82,11 +82,6 @@ export const integrationServices = {
         detail: "Data moves on a schedule in larger loads, transformed before or after it lands.",
       },
       {
-        name: "File-based EDI",
-        detail:
-          "Standard business documents, like purchase orders and invoices, exchanged in an agreed format.",
-      },
-      {
         name: "Point-to-point vs hub",
         detail:
           "Direct connections work for a few systems. A central hub or middleware layer keeps things manageable as the count grows.",
@@ -98,18 +93,6 @@ export const integrationServices = {
         "Common integration choices compared by best fit, cost shape, and change effort",
       columns: ["Best fit", "Cost shape", "Change effort"],
       rows: [
-        {
-          option: "EDI",
-          bestFit: "Established trading partners exchanging standard documents like purchase orders and invoices",
-          cost: "Setup and mapping per partner, often plus an EDI provider fee",
-          change: "Slower. Formats are fixed and both sides must agree to changes.",
-        },
-        {
-          option: "API",
-          bestFit: "Newer connections and data needed on demand or in real time",
-          cost: "Build and hosting cost, little cost per message",
-          change: "Faster. Versioning lets you add fields without breaking callers.",
-        },
         {
           option: "ETL",
           bestFit: "Data that must be cleaned or filtered before it lands",
@@ -233,11 +216,6 @@ export const integrationServices = {
           "System integration services connect separate software systems so they share data automatically. That can mean APIs, data pipelines, file exchange, or messaging between your tools and your partners' tools.",
       },
       {
-        question: "What is the difference between API integration and EDI?",
-        answer:
-          "EDI exchanges standard business documents in fixed formats, usually in batches, while API integration exchanges data on demand, often in real time. Many companies use both, EDI with established trading partners and APIs for newer connections.",
-      },
-      {
         question: "ETL or ELT: which do we need?",
         answer:
           "ETL transforms data before loading it, and ELT loads raw data first and transforms it inside the destination. ELT suits modern cloud warehouses, while ETL is often better when data must be cleaned or filtered before it lands.",
@@ -289,7 +267,7 @@ export const integrationServices = {
   },
   offerCatalog: [
     "System integration",
-    "B2B and EDI integration",
+    "Company-to-company integration",
     "API design and development",
     "ETL and data integration",
     "Webhooks and event-driven integration",
