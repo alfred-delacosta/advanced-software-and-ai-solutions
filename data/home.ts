@@ -69,6 +69,17 @@ export const home = {
           "Observable flows with retries, alerts, and runbooks",
         ],
       },
+      {
+        title: "Integration services",
+        oneLiner:
+          "System integration for the software you run and the partners you trade with: APIs, EDI and B2B data exchange, ETL pipelines, and middleware.",
+        href: "/services/integration-services/",
+        points: [
+          "API design and development",
+          "EDI, SFTP, and partner API connections",
+          "ETL pipelines with reconciliation checks",
+        ],
+      },
     ],
   },
   usBased: {

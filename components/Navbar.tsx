@@ -11,14 +11,23 @@ import styles from "./Navbar.module.css";
 const links = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/services/integration-services", label: "Integrations" },
   { href: "/products", label: "Products" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/contact", label: "Contact" },
 ];
 
-function isActive(pathname: string, href: string) {
+function matches(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+/** Only the most specific matching link is active, so Services and Integrations never both light up. */
+function isActive(pathname: string, href: string) {
+  if (!matches(pathname, href)) return false;
+  return !links.some(
+    (other) => other.href.length > href.length && matches(pathname, other.href),
+  );
 }
 
 export default function Navbar() {

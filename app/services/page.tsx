@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "U.S. Based Software, AI & Workflow Services",
   description:
-    "Custom software, AI implementation, and workflow optimization for small businesses — delivered by a 100% U.S. based team. We never offshore your work.",
+    "Custom software, AI implementation, and workflow optimization for small businesses, delivered by a 100% U.S. based team. We never offshore your work.",
   path: "/services",
 });
 
@@ -19,7 +19,7 @@ export default function ServicesPage() {
           <span>/</span>
           <span>Services</span>
         </nav>
-        <h1 className="h1">Software, AI, and automation services</h1>
+        <h1 className="h1">Software, AI, automation, and integration services</h1>
         <p className="lead">
           Choose a focused engagement, or combine them. Every engagement starts with
           discovery so we solve the right problem before we scale the solution.
