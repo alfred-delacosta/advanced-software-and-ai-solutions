@@ -11,7 +11,7 @@
 export const integrationServices = {
   slug: "integration-services",
   path: "/services/integration-services/",
-  seoTitle: "Integration Services: API and ETL",
+  seoTitle: "System Integration Services: API and ETL",
   seoDescription:
     "US-based system integration services: API design and development, ETL pipelines, webhooks, and middleware. Never offshored.",
   datePublished: "2026-10-14",

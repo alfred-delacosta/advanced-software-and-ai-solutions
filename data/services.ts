@@ -217,7 +217,7 @@ Whether you need a handful of critical syncs or a broader automation program, we
       "custom-software-development",
       "software-ai-consulting",
     ],
-    seoTitle: "Integration Services: API and ETL | Advanced Software and AI Solutions",
+    seoTitle: "System Integration Services: API and ETL | Advanced Software and AI Solutions",
     seoDescription:
       "US-based system integration services: API design and development, ETL pipelines, webhooks, and middleware. Never offshored.",
   },
