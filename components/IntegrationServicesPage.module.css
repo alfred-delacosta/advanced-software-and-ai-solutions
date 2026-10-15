@@ -215,6 +215,13 @@
   color: inherit;
 }
 
+.related a:hover :global(.h3),
+.related a:focus-visible :global(.h3) {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .related a:last-child {
   border-bottom: 1px solid var(--border);
 }

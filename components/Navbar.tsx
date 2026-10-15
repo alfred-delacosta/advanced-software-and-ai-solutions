@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { company } from "@/data/company";
 import { contact } from "@/data/contact";
 import ThemeToggle from "./ThemeToggle";
@@ -33,6 +33,20 @@ function isActive(pathname: string, href: string) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+
+  // Escape closes the mobile menu and returns focus to the menu button.
+  useEffect(() => {
+    if (!open) return;
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuBtnRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <header className={styles.header}>
@@ -132,10 +146,11 @@ export default function Navbar() {
           </div>
           <button
             type="button"
+            ref={menuBtnRef}
             className={styles.menuBtn}
             aria-expanded={open}
             aria-controls="mobile-nav"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label="Menu"
             onClick={() => setOpen((v) => !v)}
           >
             <span />

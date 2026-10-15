@@ -74,7 +74,7 @@ export default function HomePage() {
                   <p className="muted">{item.oneLiner}</p>
                   <Link href={item.href} className="text-link">
                     Learn more
-                    <span className="sr-only"> about {item.title.toLowerCase()}</span>
+                    <span className="sr-only"> about {item.title}</span>
                   </Link>
                 </div>
               </article>
